@@ -46,9 +46,8 @@ const PrivacyPage = () => {
             {/* Introduction */}
             <div className="mb-12 p-6 bg-gold/5 border border-gold/20 rounded-lg">
               <p className="text-champagne-muted leading-relaxed">
-                Lux Connoisseurs ("we," "us," or "our"), a product of CommuniTee, is committed to protecting your
-                privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when
-                you visit our website{" "}
+                Lux Connoisseurs ("we," "us," or "our"), is committed to protecting your privacy. This Privacy Policy
+                explains how we collect, use, disclose, and safeguard your information when you visit our website{" "}
                 <a href="https://luxconnoisseurs.com" className="text-gold hover:text-gold-light transition-colors">
                   https://luxconnoisseurs.com
                 </a>{" "}
