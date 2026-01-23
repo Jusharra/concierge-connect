@@ -27,11 +27,11 @@ import propertyBocaRaton from "@/assets/offers/property-boca-raton.jpg";
 import propertyBellevue from "@/assets/offers/property-bellevue.jpg";
 
 // Business acquisitions offer images
-import businessNewYork from "@/assets/offers/business-new-york.jpg";
-import businessSanFrancisco from "@/assets/offers/business-san-francisco.jpg";
-import businessChicago from "@/assets/offers/business-chicago.jpg";
-import businessDallas from "@/assets/offers/business-dallas.jpg";
-import businessLondon from "@/assets/offers/business-london.jpg";
+import businessColumbus from "@/assets/offers/business-columbus.jpg";
+import businessTampa from "@/assets/offers/business-tampa.jpg";
+import businessRiverside from "@/assets/offers/business-riverside.jpg";
+import businessAllentown from "@/assets/offers/business-allentown.jpg";
+import businessKansasCity from "@/assets/offers/business-kansas-city.jpg";
 
 // Map offer slugs to their images
 export const offerImages: Record<string, string> = {
@@ -64,11 +64,11 @@ export const offerImages: Record<string, string> = {
   "luxury-homes-private-terms-bellevue": propertyBellevue,
   
   // Business Acquisitions
-  "waste-management-business-columbus-ohio": businessNewYork,
-  "hospice-senior-care-business-tampa-florida": businessSanFrancisco,
-  "hvac-refrigeration-business-riverside-california": businessChicago,
-  "cold-storage-logistics-business-allentown-pennsylvania": businessDallas,
-  "commercial-cleaning-business-kansas-city-missouri": businessLondon,
+  "waste-management-business-columbus-ohio": businessColumbus,
+  "hospice-senior-care-business-tampa-florida": businessTampa,
+  "hvac-refrigeration-business-riverside-california": businessRiverside,
+  "cold-storage-logistics-business-allentown-pennsylvania": businessAllentown,
+  "commercial-cleaning-business-kansas-city-missouri": businessKansasCity,
 };
 
 // Get image for an offer by slug
