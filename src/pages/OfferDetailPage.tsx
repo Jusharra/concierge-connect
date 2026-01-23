@@ -5,8 +5,9 @@ import { MapPin, Phone, ArrowLeft, Check } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import LeadForm from "@/components/ui/LeadForm";
 import { SITE_NAME, PHONE_NUMBER, PHONE_HREF, CATEGORIES } from "@/lib/constants";
+import { getOfferImage } from "@/lib/offerImages";
 
-// Import category images
+// Import category images as fallback
 import privateAirImage from "@/assets/category-private-air.jpg";
 import yachtsImage from "@/assets/category-yachts.jpg";
 import exoticCarsImage from "@/assets/category-exotic-cars.jpg";
@@ -54,7 +55,8 @@ const OfferDetailPage = () => {
     return <Navigate to="/404" replace />;
   }
 
-  const heroImage = categoryImages[category.id];
+  // Use offer-specific image if available, fallback to category image
+  const heroImage = getOfferImage(offer.slug) || categoryImages[category.id];
 
   // Generate SEO-friendly description
   const seoDescription = `Request exclusive ${offer.title.toLowerCase()} access through our verified partner network. Concierge service, complete discretion, ${offer.city}.`;
