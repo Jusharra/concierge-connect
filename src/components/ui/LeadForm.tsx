@@ -312,7 +312,7 @@ const LeadForm = ({ category, offer, offerCity, variant = "default" }: LeadFormP
         ) : (
           <>
             <Send className="w-5 h-5" />
-            Submit Request
+            Request Private Access
           </>
         )}
       </button>
