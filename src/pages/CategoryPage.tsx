@@ -5,6 +5,7 @@ import { ArrowRight, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/ui/SectionHeading";
 import OfferCard from "@/components/ui/OfferCard";
+import CityCard from "@/components/ui/CityCard";
 import LeadForm from "@/components/ui/LeadForm";
 import { SITE_NAME, PHONE_NUMBER, PHONE_HREF, CATEGORIES } from "@/lib/constants";
 import { getOfferImage } from "@/lib/offerImages";
@@ -99,21 +100,46 @@ const CategoryPage = () => {
         <section id="offers" className="section-padding bg-gradient-dark">
           <div className="container-luxury">
             <SectionHeading
-              label="Available Access"
-              title={`${category.name} by City`}
-              description="Select a location to learn more about our curated access in each market."
+              label={category.id === "properties" ? "Markets" : category.id === "business-acquisitions" ? "Verticals" : "Available Access"}
+              title={category.id === "properties" 
+                ? "Explore Property Markets" 
+                : category.id === "business-acquisitions"
+                  ? "Business Transition Opportunities"
+                  : `${category.name} by City`}
+              description={category.id === "properties"
+                ? "Private access to luxury homes through structured terms. Select a market to explore opportunities."
+                : category.id === "business-acquisitions"
+                  ? "Seller-financed transitions in established, owner-operated businesses. Select a vertical to learn more."
+                  : "Select a location to learn more about our curated access in each market."}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className={`grid gap-6 ${
+              category.id === "properties" || category.id === "business-acquisitions"
+                ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            }`}>
               {category.offers.map((offer, index) => (
-                <OfferCard
-                  key={offer.slug}
-                  title={offer.title}
-                  city={offer.city}
-                  href={`${category.href}/${offer.slug}`}
-                  image={getOfferImage(offer.slug) || heroImage}
-                  index={index}
-                />
+                category.id === "properties" || category.id === "business-acquisitions" ? (
+                  <CityCard
+                    key={offer.slug}
+                    title={offer.title}
+                    city={offer.city}
+                    subtitle={offer.seo?.h1?.split(" in ")[0] || offer.seo?.h1?.split(" — ")[0]}
+                    href={`${category.href}/${offer.slug}`}
+                    image={getOfferImage(offer.slug) || heroImage}
+                    index={index}
+                    variant={category.id === "business-acquisitions" ? "business" : "property"}
+                  />
+                ) : (
+                  <OfferCard
+                    key={offer.slug}
+                    title={offer.title}
+                    city={offer.city}
+                    href={`${category.href}/${offer.slug}`}
+                    image={getOfferImage(offer.slug) || heroImage}
+                    index={index}
+                  />
+                )
               ))}
             </div>
           </div>
