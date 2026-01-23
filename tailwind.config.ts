@@ -110,6 +110,10 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.6" },
         },
+        "gold-shimmer": {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -119,6 +123,7 @@ export default {
         "slide-in-right": "slide-in-right 0.5s ease-out forwards",
         shimmer: "shimmer 2s linear infinite",
         glow: "glow 2s ease-in-out infinite",
+        "gold-shimmer": "gold-shimmer 3s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-2xl font-serif font-semibold text-foreground tracking-tight">
+              <span className="text-2xl font-serif font-semibold tracking-tight logo-animated">
                 {SITE_NAME}
               </span>
             </Link>

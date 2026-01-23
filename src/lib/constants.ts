@@ -1,8 +1,8 @@
 // Site-wide constants
-export const SITE_NAME = "Luxe Concierge";
-export const PHONE_NUMBER = "+1 (888) 555-0199";
-export const PHONE_HREF = "tel:+18885550199";
-export const EMAIL = "concierge@luxe.com";
+export const SITE_NAME = "Lux Connoisseurs";
+export const PHONE_NUMBER = "+1 (678) 335 8105";
+export const PHONE_HREF = "tel:+16783358105";
+export const EMAIL = "luxconnoisseurs@gmail.com";
 
 // Type definitions for enhanced SEO content
 export interface OfferSEO {
