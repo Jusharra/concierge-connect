@@ -59,12 +59,20 @@ const defaultIncludedAccess: Record<string, string[]> = {
     "Transaction coordination"
   ],
   "business-acquisitions": [
-    "Off-market deal flow",
-    "Due diligence coordination",
-    "Strategic advisory",
-    "Transaction support"
+    "Seller-financed transitions",
+    "Gradual ownership transfer",
+    "Employee and customer continuity",
+    "Operational improvement support"
   ]
 };
+
+// Business Acquisitions specific "How It Works"
+const businessAcquisitionsHowItWorks = [
+  { step: "01", title: "Request a confidential conversation" },
+  { step: "02", title: "We assess fit and transition structure" },
+  { step: "03", title: "Seller financing terms are negotiated" },
+  { step: "04", title: "Ownership transitions with continuity focus" }
+];
 
 const OfferDetailPage = () => {
   const { categoryId, offerSlug } = useParams<{ categoryId: string; offerSlug: string }>();
@@ -174,7 +182,7 @@ const OfferDetailPage = () => {
                 href="#request-form"
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors"
               >
-                Request Private Access
+                {category.id === "business-acquisitions" ? "Request a Private Discussion" : "Request Private Access"}
               </a>
               <a
                 href={PHONE_HREF}
@@ -205,21 +213,41 @@ const OfferDetailPage = () => {
                 <div className="flex items-center gap-3 mb-4">
                   <Shield className="w-6 h-6 text-primary" />
                   <h2 className="text-xl font-display font-semibold text-foreground">
-                    Why Clients Use Concierge Access Instead of Public Marketplaces
+                    {category.id === "business-acquisitions" 
+                      ? "Private, Off-Market Acquisitions" 
+                      : "Why Clients Use Concierge Access Instead of Public Marketplaces"}
                   </h2>
                 </div>
                 <div className="space-y-3 text-muted-foreground">
-                  <p>We do not list inventory publicly. We coordinate access through verified operators and partners based on your city, timing, and preferences.</p>
-                  <p className="font-medium text-foreground">This ensures:</p>
-                  <ul className="grid sm:grid-cols-2 gap-2">
-                    {["Discretion", "Priority access", "Accurate availability", "Serious counterparties only"].map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-sm italic pt-2">No browsing. No spam. No wasted time.</p>
+                  {category.id === "business-acquisitions" ? (
+                    <>
+                      <p>We are not a brokerage service and do not solicit public bids. We work directly with owners seeking quiet, seller-financed transitions.</p>
+                      <p className="font-medium text-foreground">Our model prioritizes:</p>
+                      <ul className="grid sm:grid-cols-2 gap-2">
+                        {["Seller financing only", "Employee & customer continuity", "Gradual ownership transitions", "No public listings"].map((item) => (
+                          <li key={item} className="flex items-center gap-2">
+                            <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-sm italic pt-2">Principal buyer. Structured intermediary. Aligned capital partners.</p>
+                    </>
+                  ) : (
+                    <>
+                      <p>We do not list inventory publicly. We coordinate access through verified operators and partners based on your city, timing, and preferences.</p>
+                      <p className="font-medium text-foreground">This ensures:</p>
+                      <ul className="grid sm:grid-cols-2 gap-2">
+                        {["Discretion", "Priority access", "Accurate availability", "Serious counterparties only"].map((item) => (
+                          <li key={item} className="flex items-center gap-2">
+                            <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-sm italic pt-2">No browsing. No spam. No wasted time.</p>
+                    </>
+                  )}
                 </div>
               </motion.div>
 
@@ -248,7 +276,7 @@ const OfferDetailPage = () => {
                 viewport={{ once: true }}
               >
                 <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
-                  Included {category.name} Access
+                  {category.id === "business-acquisitions" ? "Ideal Businesses" : `Included ${category.name} Access`}
                 </h2>
                 <ul className="grid sm:grid-cols-2 gap-3">
                   {includedAccess.map((item, index) => (
@@ -302,10 +330,12 @@ const OfferDetailPage = () => {
               <div id="request-form" className="sticky top-24 space-y-6">
                 <div className="bg-card border border-border rounded-lg p-6">
                   <h3 className="text-xl font-display font-semibold text-foreground mb-2">
-                    Request Private Access
+                    {category.id === "business-acquisitions" ? "Start a Confidential Review" : "Request Private Access"}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-6">
-                    Share your requirements and we'll coordinate verified access.
+                    {category.id === "business-acquisitions" 
+                      ? "Share your situation and we'll begin a private conversation."
+                      : "Share your requirements and we'll coordinate verified access."}
                   </p>
                   <LeadForm
                     category={category.name}
