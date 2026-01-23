@@ -53,10 +53,10 @@ const defaultIncludedAccess: Record<string, string[]> = {
     "Insurance coordination"
   ],
   "properties": [
-    "Off-market property access",
-    "Vacation and investment properties",
-    "Private viewings arranged",
-    "Transaction coordination"
+    "Luxury single-family homes",
+    "Executive residences",
+    "Vacation and second homes",
+    "High-end condos and estates"
   ],
   "business-acquisitions": [
     "Seller-financed transitions",
@@ -65,6 +65,14 @@ const defaultIncludedAccess: Record<string, string[]> = {
     "Operational improvement support"
   ]
 };
+
+// Properties specific "How It Works"
+const propertiesHowItWorks = [
+  { step: "01", title: "Submit a property access or transition inquiry" },
+  { step: "02", title: "We assess alignment and terms fit" },
+  { step: "03", title: "Structured arrangement is negotiated privately" },
+  { step: "04", title: "Agreement executed directly between parties" }
+];
 
 // Business Acquisitions specific "How It Works"
 const businessAcquisitionsHowItWorks = [
@@ -94,7 +102,7 @@ const OfferDetailPage = () => {
   const subheading = offer.seo?.subheading || category.description;
   const pageCopy = offer.pageCopy || [];
   const includedAccess = offer.includedAccess || defaultIncludedAccess[category.id] || [];
-  const howItWorks = offer.howItWorks || defaultHowItWorks;
+  const howItWorks = offer.howItWorks || (category.id === "properties" ? propertiesHowItWorks : (category.id === "business-acquisitions" ? businessAcquisitionsHowItWorks : defaultHowItWorks));
   const nearbyAreas = offer.nearbyAreas || [];
   
   const canonicalUrl = `https://luxeconcierge.com/${category.id}/${offer.slug}`;
@@ -182,7 +190,11 @@ const OfferDetailPage = () => {
                 href="#request-form"
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors"
               >
-                {category.id === "business-acquisitions" ? "Request a Private Discussion" : "Request Private Access"}
+                {category.id === "properties" 
+                  ? "Request Property Access" 
+                  : category.id === "business-acquisitions" 
+                    ? "Request a Private Discussion" 
+                    : "Request Private Access"}
               </a>
               <a
                 href={PHONE_HREF}
@@ -213,13 +225,29 @@ const OfferDetailPage = () => {
                 <div className="flex items-center gap-3 mb-4">
                   <Shield className="w-6 h-6 text-primary" />
                   <h2 className="text-xl font-display font-semibold text-foreground">
-                    {category.id === "business-acquisitions" 
-                      ? "Private, Off-Market Acquisitions" 
-                      : "Why Clients Use Concierge Access Instead of Public Marketplaces"}
+                    {category.id === "properties"
+                      ? "Private, Terms-Based Property Access"
+                      : category.id === "business-acquisitions" 
+                        ? "Private, Off-Market Acquisitions" 
+                        : "Why Clients Use Concierge Access Instead of Public Marketplaces"}
                   </h2>
                 </div>
                 <div className="space-y-3 text-muted-foreground">
-                  {category.id === "business-acquisitions" ? (
+                  {category.id === "properties" ? (
+                    <>
+                      <p>We work privately with property owners and qualified buyers to create structured, terms-based arrangements that allow homes to be occupied, controlled, and ultimately purchased over time — without relying solely on traditional bank financing.</p>
+                      <p className="font-medium text-foreground">This model is ideal for:</p>
+                      <ul className="grid sm:grid-cols-2 gap-2">
+                        {["Owners seeking income or gradual exit", "Buyers seeking access without full financing", "Control without immediate ownership transfer", "Time-based purchase paths"].map((item) => (
+                          <li key={item} className="flex items-center gap-2">
+                            <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-sm italic pt-2">Not a brokerage. Not a landlord. Control and placement.</p>
+                    </>
+                  ) : category.id === "business-acquisitions" ? (
                     <>
                       <p>We are not a brokerage service and do not solicit public bids. We work directly with owners seeking quiet, seller-financed transitions.</p>
                       <p className="font-medium text-foreground">Our model prioritizes:</p>
@@ -276,7 +304,11 @@ const OfferDetailPage = () => {
                 viewport={{ once: true }}
               >
                 <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
-                  {category.id === "business-acquisitions" ? "Ideal Businesses" : `Included ${category.name} Access`}
+                  {category.id === "business-acquisitions" 
+                    ? "Ideal Businesses" 
+                    : category.id === "properties" 
+                      ? "Properties We Work With"
+                      : `Included ${category.name} Access`}
                 </h2>
                 <ul className="grid sm:grid-cols-2 gap-3">
                   {includedAccess.map((item, index) => (
@@ -287,6 +319,30 @@ const OfferDetailPage = () => {
                   ))}
                 </ul>
               </motion.div>
+
+              {/* Who This Is For - Properties Only */}
+              {category.id === "properties" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
+                    Who This Is For
+                  </h2>
+                  <ul className="grid sm:grid-cols-2 gap-3">
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">Owners open to flexible sale structures</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">Buyers seeking rent-to-own or delayed cash-out options</span>
+                    </li>
+                  </ul>
+                </motion.div>
+              )}
 
               {/* How It Works */}
               <motion.div
@@ -330,12 +386,18 @@ const OfferDetailPage = () => {
               <div id="request-form" className="sticky top-24 space-y-6">
                 <div className="bg-card border border-border rounded-lg p-6">
                   <h3 className="text-xl font-display font-semibold text-foreground mb-2">
-                    {category.id === "business-acquisitions" ? "Start a Confidential Review" : "Request Private Access"}
+                    {category.id === "properties"
+                      ? "Explore Property Access"
+                      : category.id === "business-acquisitions" 
+                        ? "Start a Confidential Review" 
+                        : "Request Private Access"}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-6">
-                    {category.id === "business-acquisitions" 
-                      ? "Share your situation and we'll begin a private conversation."
-                      : "Share your requirements and we'll coordinate verified access."}
+                    {category.id === "properties"
+                      ? "Explore whether a structured property arrangement is right for you."
+                      : category.id === "business-acquisitions" 
+                        ? "Share your situation and we'll begin a private conversation."
+                        : "Share your requirements and we'll coordinate verified access."}
                   </p>
                   <LeadForm
                     category={category.name}
