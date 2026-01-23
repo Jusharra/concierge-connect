@@ -20,11 +20,11 @@ import carMonaco from "@/assets/offers/car-monaco.jpg";
 import carNewYork from "@/assets/offers/car-new-york.jpg";
 
 // Property offer images
-import propertyNewYork from "@/assets/offers/property-new-york.jpg";
-import propertyBeverlyHills from "@/assets/offers/property-beverly-hills.jpg";
-import propertyMalibu from "@/assets/offers/property-malibu.jpg";
-import propertyPalmBeach from "@/assets/offers/property-palm-beach.jpg";
-import propertyAspen from "@/assets/offers/property-aspen.jpg";
+import propertyScottsdale from "@/assets/offers/property-scottsdale.jpg";
+import propertyNewportBeach from "@/assets/offers/property-newport-beach.jpg";
+import propertyNaperville from "@/assets/offers/property-naperville.jpg";
+import propertyBocaRaton from "@/assets/offers/property-boca-raton.jpg";
+import propertyBellevue from "@/assets/offers/property-bellevue.jpg";
 
 // Business acquisitions offer images
 import businessNewYork from "@/assets/offers/business-new-york.jpg";
@@ -57,18 +57,18 @@ export const offerImages: Record<string, string> = {
   "exotic-car-rental-new-york": carNewYork,
   
   // Properties
-  "off-market-luxury-homes-new-york": propertyNewYork,
-  "luxury-estates-beverly-hills": propertyBeverlyHills,
-  "beachfront-homes-malibu": propertyMalibu,
-  "luxury-properties-palm-beach": propertyPalmBeach,
-  "mountain-estates-aspen": propertyAspen,
+  "luxury-homes-structured-terms-scottsdale": propertyScottsdale,
+  "luxury-homes-private-terms-newport-beach": propertyNewportBeach,
+  "executive-homes-structured-terms-naperville": propertyNaperville,
+  "luxury-residences-flexible-terms-boca-raton": propertyBocaRaton,
+  "luxury-homes-private-terms-bellevue": propertyBellevue,
   
   // Business Acquisitions
-  "business-acquisitions-new-york": businessNewYork,
-  "tech-acquisitions-san-francisco": businessSanFrancisco,
-  "business-acquisitions-chicago": businessChicago,
-  "business-acquisitions-dallas": businessDallas,
-  "business-acquisitions-london": businessLondon,
+  "waste-management-business-columbus-ohio": businessNewYork,
+  "hospice-senior-care-business-tampa-florida": businessSanFrancisco,
+  "hvac-refrigeration-business-riverside-california": businessChicago,
+  "cold-storage-logistics-business-allentown-pennsylvania": businessDallas,
+  "commercial-cleaning-business-kansas-city-missouri": businessLondon,
 };
 
 // Get image for an offer by slug
