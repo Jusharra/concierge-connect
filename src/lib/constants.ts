@@ -519,15 +519,150 @@ export const CATEGORIES: Category[] = [
   {
     id: "business-acquisitions",
     name: "Business Acquisitions",
-    tagline: "Strategic Opportunities",
-    description: "Discreet access to off-market business acquisition opportunities, private equity deals, and exclusive investment introductions.",
+    tagline: "Seller-Financed Transitions",
+    description: "Private, off-market acquisition of established businesses. Seller financing only. Quiet transitions focused on continuity.",
     href: "/business-acquisitions",
     offers: [
-      { city: "New York", slug: "business-acquisitions-new-york", title: "Business Acquisitions New York" },
-      { city: "San Francisco", slug: "tech-acquisitions-san-francisco", title: "Tech Acquisitions San Francisco" },
-      { city: "Chicago", slug: "business-acquisitions-chicago", title: "Business Acquisitions Chicago" },
-      { city: "Dallas", slug: "business-acquisitions-dallas", title: "Business Acquisitions Dallas" },
-      { city: "London", slug: "business-acquisitions-london", title: "Business Acquisitions London" }
+      {
+        city: "Columbus",
+        slug: "waste-management-business-columbus-ohio",
+        title: "Waste Management Business Acquisitions Columbus",
+        seo: {
+          metaTitle: "Sell or Buy a Waste Management Business in Columbus, OH | Seller Financing",
+          metaDescription: "Private acquisition of waste management and recycling businesses in Columbus, Ohio. Seller financing only. Quiet, off-market transitions.",
+          h1: "Waste Management & Recycling Business Acquisitions in Columbus, Ohio",
+          subheading: "Quiet transitions for established operators — seller financing only"
+        },
+        pageCopy: [
+          "Columbus is home to a large number of long-standing waste management and recycling businesses built over decades by owner-operators. Many of these businesses are profitable, contract-driven, and operationally stable — but succession planning is often overlooked.",
+          "We work with owners who are considering retirement, partial exit, or a structured transition and prefer a seller-financed acquisition rather than a public sale or broker-driven auction.",
+          "Our approach is simple and private: We acquire or place businesses using seller financing. We prioritize continuity for employees, customers, and municipalities. We avoid public listings and speculative buyers.",
+          "This is not a brokerage service. We are a principal buyer and structured intermediary working with aligned capital partners when appropriate."
+        ],
+        includedAccess: [
+          "Waste hauling",
+          "Recycling facilities",
+          "Transfer stations",
+          "Industrial waste services"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request a confidential conversation" },
+          { step: "02", title: "We assess fit and transition structure" },
+          { step: "03", title: "Seller financing terms are negotiated" },
+          { step: "04", title: "Ownership transitions with continuity focus" }
+        ],
+        nearbyAreas: ["Dublin", "Westerville", "Grove City", "Reynoldsburg"]
+      },
+      {
+        city: "Tampa",
+        slug: "hospice-senior-care-business-tampa-florida",
+        title: "Hospice & Senior Care Business Acquisitions Tampa",
+        seo: {
+          metaTitle: "Sell a Hospice or Senior Care Business in Tampa, FL | Seller Financing",
+          metaDescription: "Private acquisition of hospice and senior care businesses in Tampa. Seller-financed transitions focused on continuity and legacy.",
+          h1: "Hospice & Senior Care Business Transitions in Tampa, Florida",
+          subheading: "Preserving care, staff, and legacy through structured acquisition"
+        },
+        pageCopy: [
+          "Tampa is one of the most active senior-care markets in the country, and many hospice and home care businesses were founded by owners who are now approaching retirement.",
+          "We work with licensed, established operators seeking a quiet, seller-financed transition that preserves patient care standards and staff relationships.",
+          "Our model prioritizes regulatory continuity, operational stability, gradual ownership transitions, and seller participation when desired.",
+          "We are not a listing service and do not solicit public bids."
+        ],
+        includedAccess: [
+          "Hospice care providers",
+          "Home health agencies",
+          "Senior care services"
+        ],
+        howItWorks: [
+          { step: "01", title: "Start a confidential review" },
+          { step: "02", title: "We assess regulatory and operational fit" },
+          { step: "03", title: "Seller financing structure is negotiated" },
+          { step: "04", title: "Transition preserves care continuity" }
+        ],
+        nearbyAreas: ["St. Petersburg", "Clearwater", "Brandon", "Sarasota"]
+      },
+      {
+        city: "Riverside",
+        slug: "hvac-refrigeration-business-riverside-california",
+        title: "HVAC & Refrigeration Business Acquisitions Riverside",
+        seo: {
+          metaTitle: "Sell an HVAC Business in Riverside, CA | Seller Financing Only",
+          metaDescription: "Private acquisition of HVAC and refrigeration companies in the Inland Empire. Seller financing required. Quiet, direct transitions.",
+          h1: "HVAC & Refrigeration Business Acquisitions in Riverside & Inland Empire",
+          subheading: "Owner-built service businesses seeking structured transition"
+        },
+        pageCopy: [
+          "The Inland Empire has one of the largest concentrations of HVAC and refrigeration service companies in California. Many were built by founders who now want to reduce operational burden without dismantling what they've built.",
+          "We focus on seller-financed acquisitions that allow gradual transitions, continued customer service quality, technology and operational improvements, and revenue growth post-transition."
+        ],
+        includedAccess: [
+          "HVAC service companies",
+          "Commercial refrigeration",
+          "Industrial cooling services"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request a private discussion" },
+          { step: "02", title: "We evaluate operational fit" },
+          { step: "03", title: "Seller financing terms are structured" },
+          { step: "04", title: "Transition supports business continuity" }
+        ],
+        nearbyAreas: ["San Bernardino", "Ontario", "Corona", "Fontana"]
+      },
+      {
+        city: "Allentown",
+        slug: "cold-storage-logistics-business-allentown-pennsylvania",
+        title: "Cold Storage & Logistics Business Acquisitions Allentown",
+        seo: {
+          metaTitle: "Sell a Logistics or Cold Storage Business in Allentown, PA",
+          metaDescription: "Private seller-financed acquisition of logistics and cold storage companies in the Lehigh Valley. Confidential, off-market.",
+          h1: "Logistics & Cold Storage Business Transitions in the Lehigh Valley",
+          subheading: "Family-owned logistics assets seeking structured transition"
+        },
+        pageCopy: [
+          "The Lehigh Valley is a critical logistics corridor, home to family-owned freight, warehousing, and cold storage businesses serving the Northeast.",
+          "We work with owners seeking liquidity without disruption, seller-financed exits, and continued involvement if desired."
+        ],
+        includedAccess: [
+          "Cold storage facilities",
+          "Freight logistics",
+          "Warehouse operations"
+        ],
+        howItWorks: [
+          { step: "01", title: "Explore a confidential transition discussion" },
+          { step: "02", title: "We assess operational and asset fit" },
+          { step: "03", title: "Seller financing is negotiated" },
+          { step: "04", title: "Ownership transitions with minimal disruption" }
+        ],
+        nearbyAreas: ["Bethlehem", "Easton", "Reading", "Quakertown"]
+      },
+      {
+        city: "Kansas City",
+        slug: "commercial-cleaning-business-kansas-city-missouri",
+        title: "Commercial Cleaning Business Acquisitions Kansas City",
+        seo: {
+          metaTitle: "Sell a Commercial Cleaning Business in Kansas City | Seller Financing",
+          metaDescription: "Private acquisition of commercial cleaning and facility maintenance companies in Kansas City. Seller-financed only.",
+          h1: "Commercial Cleaning & Facility Maintenance Business Transitions in Kansas City",
+          subheading: "Recurring-revenue service businesses seeking succession"
+        },
+        pageCopy: [
+          "Commercial cleaning and facility maintenance businesses are among the most stable recurring-revenue operations — and many are owned by operators ready to step back.",
+          "We acquire or place these businesses using seller financing, ensuring client continuity, staff retention, and operational improvements."
+        ],
+        includedAccess: [
+          "Commercial cleaning",
+          "Facility maintenance",
+          "Janitorial services"
+        ],
+        howItWorks: [
+          { step: "01", title: "Begin a private conversation about your transition" },
+          { step: "02", title: "We assess client base and operations" },
+          { step: "03", title: "Seller financing terms are structured" },
+          { step: "04", title: "Transition ensures client and staff continuity" }
+        ],
+        nearbyAreas: ["Overland Park", "Olathe", "Independence", "Lee's Summit"]
+      }
     ]
   }
 ];
