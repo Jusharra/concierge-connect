@@ -7,6 +7,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import OfferCard from "@/components/ui/OfferCard";
 import LeadForm from "@/components/ui/LeadForm";
 import { SITE_NAME, PHONE_NUMBER, PHONE_HREF, CATEGORIES } from "@/lib/constants";
+import { getOfferImage } from "@/lib/offerImages";
 
 // Import category images
 import privateAirImage from "@/assets/category-private-air.jpg";
@@ -110,7 +111,7 @@ const CategoryPage = () => {
                   title={offer.title}
                   city={offer.city}
                   href={`${category.href}/${offer.slug}`}
-                  image={heroImage}
+                  image={getOfferImage(offer.slug) || heroImage}
                   index={index}
                 />
               ))}
