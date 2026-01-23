@@ -1,8 +1,19 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Send, Check, Loader2 } from "lucide-react";
+import { Send, Check, Loader2, CalendarIcon } from "lucide-react";
 import { z } from "zod";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 // Form validation schema
 const formSchema = z.object({
@@ -10,7 +21,6 @@ const formSchema = z.object({
   email: z.string().trim().email("Please enter a valid email").max(255),
   phone: z.string().trim().min(10, "Please enter a valid phone number").max(20),
   city: z.string().trim().min(2, "Please enter your city").max(100),
-  dates: z.string().optional(),
   notes: z.string().max(1000).optional(),
 });
 
@@ -25,14 +35,16 @@ interface LeadFormProps {
 
 const LeadForm = ({ category, offer, offerCity, variant = "default" }: LeadFormProps) => {
   const location = useLocation();
+  const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     city: offerCity || "",
-    dates: "",
     notes: "",
   });
+  const [startDate, setStartDate] = useState<Date>();
+  const [endDate, setEndDate] = useState<Date>();
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -68,6 +80,8 @@ const LeadForm = ({ category, offer, offerCity, variant = "default" }: LeadFormP
     // Prepare data with hidden fields
     const submissionData = {
       ...formData,
+      startDate: startDate ? format(startDate, "yyyy-MM-dd") : undefined,
+      endDate: endDate ? format(endDate, "yyyy-MM-dd") : undefined,
       category: category || "General",
       offer: offer || "General Inquiry",
       offerCity: offerCity || formData.city,
@@ -76,27 +90,44 @@ const LeadForm = ({ category, offer, offerCity, variant = "default" }: LeadFormP
       timestamp: new Date().toISOString(),
     };
 
-    // Simulate form submission (replace with actual Google Sheets integration)
-    // For production: Use Netlify Forms, Tally, or Jotform embedded forms
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log("Form submission data:", submissionData);
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-
-    // Reset after success
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        city: offerCity || "",
-        dates: "",
-        notes: "",
+    try {
+      const { data, error } = await supabase.functions.invoke("submit-lead", {
+        body: submissionData,
       });
-      setIsSuccess(false);
-    }, 5000);
+
+      if (error) {
+        throw error;
+      }
+
+      setIsSuccess(true);
+      toast({
+        title: "Request Submitted",
+        description: "Our concierge team will contact you within 24 hours.",
+      });
+
+      // Reset after success
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          city: offerCity || "",
+          notes: "",
+        });
+        setStartDate(undefined);
+        setEndDate(undefined);
+        setIsSuccess(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Submission Error",
+        description: "There was an issue submitting your request. Please try again or call us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClasses = "w-full bg-input border border-border rounded px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors";
@@ -189,17 +220,63 @@ const LeadForm = ({ category, offer, offerCity, variant = "default" }: LeadFormP
 
       {variant !== "compact" && (
         <>
-          <div>
-            <label htmlFor="dates" className={labelClasses}>Preferred Dates</label>
-            <input
-              type="text"
-              id="dates"
-              name="dates"
-              value={formData.dates}
-              onChange={handleChange}
-              placeholder="e.g., March 15-20, 2025"
-              className={inputClasses}
-            />
+          {/* Date Range Picker */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label className={labelClasses}>Start Date</label>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "w-full justify-start text-left font-normal bg-input border-border hover:bg-input/80 hover:border-gold",
+                      !startDate && "text-muted-foreground"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {startDate ? format(startDate, "PPP") : <span>Select start date</span>}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0 bg-card border-border" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={startDate}
+                    onSelect={setStartDate}
+                    disabled={(date) => date < new Date()}
+                    initialFocus
+                    className={cn("p-3 pointer-events-auto")}
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
+
+            <div>
+              <label className={labelClasses}>End Date</label>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "w-full justify-start text-left font-normal bg-input border-border hover:bg-input/80 hover:border-gold",
+                      !endDate && "text-muted-foreground"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {endDate ? format(endDate, "PPP") : <span>Select end date</span>}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0 bg-card border-border" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={endDate}
+                    onSelect={setEndDate}
+                    disabled={(date) => date < (startDate || new Date())}
+                    initialFocus
+                    className={cn("p-3 pointer-events-auto")}
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
           </div>
 
           <div>
