@@ -11,6 +11,8 @@ import PartnersPage from "./pages/PartnersPage";
 import CategoryPage from "./pages/CategoryPage";
 import OfferDetailPage from "./pages/OfferDetailPage";
 import ContactPage from "./pages/ContactPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
             <Route path="/locations" element={<LocationsPage />} />
             <Route path="/partners" element={<PartnersPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
             
             {/* Category Routes - Dynamic */}
             <Route path="/:categoryId" element={<CategoryPage />} />
