@@ -505,15 +505,150 @@ export const CATEGORIES: Category[] = [
   {
     id: "properties",
     name: "Properties",
-    tagline: "Exceptional Residences",
-    description: "Access off-market luxury homes, vacation estates, and investment properties in the world's most prestigious locations.",
+    tagline: "Flexible Paths to Ownership",
+    description: "Private access to luxury homes through structured terms. A refined alternative for buyers and owners seeking flexibility.",
     href: "/properties",
     offers: [
-      { city: "New York", slug: "off-market-luxury-homes-new-york", title: "Off-Market Luxury Homes New York" },
-      { city: "Beverly Hills", slug: "luxury-estates-beverly-hills", title: "Luxury Estates Beverly Hills" },
-      { city: "Malibu", slug: "beachfront-homes-malibu", title: "Beachfront Homes Malibu" },
-      { city: "Palm Beach", slug: "luxury-properties-palm-beach", title: "Luxury Properties Palm Beach" },
-      { city: "Aspen", slug: "mountain-estates-aspen", title: "Mountain Estates Aspen" }
+      {
+        city: "Scottsdale",
+        slug: "luxury-homes-structured-terms-scottsdale",
+        title: "Luxury Property Access Scottsdale",
+        seo: {
+          metaTitle: "Scottsdale Luxury Homes for Rent-to-Own or Terms-Based Purchase",
+          metaDescription: "Explore luxury homes in Scottsdale available through structured terms. Private arrangements for buyers and owners seeking flexibility.",
+          h1: "Luxury Property Access in Scottsdale Through Structured Terms",
+          subheading: "A private alternative for buying or transitioning high-quality homes"
+        },
+        pageCopy: [
+          "Scottsdale is home to some of the most desirable residential properties in the Southwest — custom homes, estates, and luxury residences often owned outright or with significant equity.",
+          "We work privately with property owners and qualified buyers to create structured, terms-based arrangements that allow homes to be occupied, controlled, and ultimately purchased over time — without relying solely on traditional bank financing.",
+          "This model is ideal for owners who want income, relief from management, or a gradual exit — and for buyers who want access to premium homes without immediate full financing.",
+          "We are not a brokerage and we do not list properties publicly. We specialize in control and placement, acting as the facilitator who aligns both sides under clearly defined terms."
+        ],
+        includedAccess: [
+          "Luxury single-family homes",
+          "Executive residences",
+          "High-end vacation or second homes"
+        ],
+        howItWorks: [
+          { step: "01", title: "Submit a property access or transition inquiry" },
+          { step: "02", title: "We assess alignment and terms fit" },
+          { step: "03", title: "Structured arrangement is negotiated privately" },
+          { step: "04", title: "Agreement executed directly between parties" }
+        ],
+        nearbyAreas: ["Paradise Valley", "Cave Creek", "Fountain Hills", "Mesa"]
+      },
+      {
+        city: "Newport Beach",
+        slug: "luxury-homes-private-terms-newport-beach",
+        title: "Luxury Home Access Newport Beach",
+        seo: {
+          metaTitle: "Newport Beach Luxury Homes | Flexible Purchase & Rent-to-Own Options",
+          metaDescription: "Private access to Newport Beach luxury homes through structured terms. Buy or transition property without traditional constraints.",
+          h1: "Newport Beach Luxury Homes — Access Without Traditional Barriers",
+          subheading: "Coastal luxury available through private, terms-based arrangements"
+        },
+        pageCopy: [
+          "Newport Beach properties are often held by long-term owners with significant equity. Many are open to alternative arrangements that preserve value, reduce friction, and maintain discretion.",
+          "We create private, structured agreements that allow qualified occupants to live in and work toward ownership of luxury homes while providing owners with income, protection, and a defined exit.",
+          "This approach allows control without immediate ownership transfer, time-based purchase paths, and privacy for both parties."
+        ],
+        includedAccess: [
+          "Coastal luxury homes",
+          "Executive residences",
+          "High-end condos and estates"
+        ],
+        howItWorks: [
+          { step: "01", title: "Start a confidential conversation about access or transition" },
+          { step: "02", title: "We verify alignment and property fit" },
+          { step: "03", title: "Private terms are structured" },
+          { step: "04", title: "Agreement executed between parties" }
+        ],
+        nearbyAreas: ["Laguna Beach", "Corona del Mar", "Irvine", "Huntington Beach"]
+      },
+      {
+        city: "Naperville",
+        slug: "executive-homes-structured-terms-naperville",
+        title: "Executive Home Access Naperville",
+        seo: {
+          metaTitle: "Naperville Luxury Homes | Alternative Paths to Ownership",
+          metaDescription: "Explore executive homes in Naperville available through private, structured terms. Ideal for buyers and owners seeking flexibility.",
+          h1: "Naperville Executive Homes — Private, Terms-Based Access",
+          subheading: "Large family homes available through structured purchase paths"
+        },
+        pageCopy: [
+          "Naperville is known for large, well-maintained executive homes often owned by families approaching retirement or transition.",
+          "We specialize in structured agreements that allow owners to step back without selling outright — and buyers to secure high-quality homes with time-based purchase options.",
+          "This is not a rental model. It is a pathway to ownership built around clarity, control, and alignment."
+        ],
+        includedAccess: [
+          "Executive single-family homes",
+          "Large family residences",
+          "High-end suburban properties"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request details about available properties or transitions" },
+          { step: "02", title: "We assess buyer-owner alignment" },
+          { step: "03", title: "Structured terms are negotiated" },
+          { step: "04", title: "Agreement executed privately" }
+        ],
+        nearbyAreas: ["Wheaton", "Downers Grove", "Aurora", "Oak Brook"]
+      },
+      {
+        city: "Boca Raton",
+        slug: "luxury-residences-flexible-terms-boca-raton",
+        title: "Luxury Residence Access Boca Raton",
+        seo: {
+          metaTitle: "Boca Raton Luxury Homes | Rent-to-Own & Terms-Based Access",
+          metaDescription: "Private access to Boca Raton luxury homes through flexible purchase structures. Designed for buyers and sellers seeking alternatives.",
+          h1: "Boca Raton Luxury Property Access Without Immediate Financing",
+          subheading: "Flexible ownership structures for discerning buyers and owners"
+        },
+        pageCopy: [
+          "Many Boca Raton homeowners prefer flexibility, income continuity, and simplicity over traditional listings.",
+          "We work behind the scenes to structure terms-based property arrangements that benefit both sides: Owners receive relief and predictable income. Buyers gain access to premium homes while preparing for final purchase."
+        ],
+        includedAccess: [
+          "Luxury single-family homes",
+          "Waterfront properties",
+          "High-end condominiums"
+        ],
+        howItWorks: [
+          { step: "01", title: "Explore private property access opportunities" },
+          { step: "02", title: "We verify alignment and terms fit" },
+          { step: "03", title: "Structured arrangement is negotiated" },
+          { step: "04", title: "Agreement executed between parties" }
+        ],
+        nearbyAreas: ["Delray Beach", "Palm Beach Gardens", "Parkland", "Wellington"]
+      },
+      {
+        city: "Bellevue",
+        slug: "luxury-homes-private-terms-bellevue",
+        title: "Luxury Home Access Bellevue",
+        seo: {
+          metaTitle: "Bellevue Luxury Homes | Flexible Purchase Structures",
+          metaDescription: "Bellevue luxury homes available through structured, private purchase terms. A refined alternative to traditional buying.",
+          h1: "Bellevue Luxury Homes — A Smarter Path to Ownership",
+          subheading: "Premium homes accessible through private, terms-based arrangements"
+        },
+        pageCopy: [
+          "Bellevue's housing market is competitive, high-priced, and often inaccessible through conventional financing alone.",
+          "Our model allows qualified buyers to secure and control premium homes while working toward ownership over time — and provides owners with a clean, structured exit.",
+          "This is ideal for tech professionals, executives, and owners seeking privacy and flexibility."
+        ],
+        includedAccess: [
+          "Luxury single-family homes",
+          "Waterfront estates",
+          "Modern executive residences"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request access to current opportunities" },
+          { step: "02", title: "We assess buyer qualifications and owner alignment" },
+          { step: "03", title: "Private terms are structured" },
+          { step: "04", title: "Agreement executed directly" }
+        ],
+        nearbyAreas: ["Kirkland", "Redmond", "Mercer Island", "Medina"]
+      }
     ]
   },
   {
