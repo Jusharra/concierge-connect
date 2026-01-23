@@ -2,16 +2,23 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SITE_NAME, PHONE_NUMBER, PHONE_HREF, CATEGORIES } from "@/lib/constants";
+import { SITE_NAME, PHONE_NUMBER, PHONE_HREF } from "@/lib/constants";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   const navLinks = [
-    ...CATEGORIES.map(cat => ({ name: cat.name, href: cat.href })),
+    { name: "Access", href: "/access" },
+    { name: "Locations", href: "/locations" },
+    { name: "Partners", href: "/partners" },
     { name: "Contact", href: "/contact" },
   ];
+
+  const isActiveLink = (href: string) => {
+    if (href === "/") return location.pathname === "/";
+    return location.pathname.startsWith(href);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/30">
@@ -19,8 +26,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-serif font-semibold text-foreground tracking-tight">
-              {SITE_NAME}
+            <span className="text-xl md:text-2xl font-serif font-semibold text-foreground tracking-tight uppercase">
+              Lux Concierge
             </span>
           </Link>
 
@@ -31,7 +38,7 @@ const Header = () => {
                 key={link.href}
                 to={link.href}
                 className={`text-sm font-medium tracking-wide transition-colors link-underline ${
-                  location.pathname.startsWith(link.href)
+                  isActiveLink(link.href)
                     ? "text-gold"
                     : "text-foreground/80 hover:text-foreground"
                 }`}
@@ -41,8 +48,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop Phone - Visually Separated */}
+          <div className="hidden lg:flex items-center gap-6">
+            <div className="h-8 w-px bg-border/50" />
             <a
               href={PHONE_HREF}
               className="flex items-center gap-2 text-sm font-medium text-gold hover-gold"
@@ -50,12 +58,6 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               {PHONE_NUMBER}
             </a>
-            <Link
-              to="/contact"
-              className="luxury-btn-primary text-sm py-3 px-6"
-            >
-              Request Access
-            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -85,7 +87,7 @@ const Header = () => {
                   to={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-lg font-medium py-2 ${
-                    location.pathname.startsWith(link.href)
+                    isActiveLink(link.href)
                       ? "text-gold"
                       : "text-foreground/80"
                   }`}
@@ -93,7 +95,7 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4 mt-4 border-t border-border/30 flex flex-col gap-4">
+              <div className="pt-4 mt-4 border-t border-border/30">
                 <a
                   href={PHONE_HREF}
                   className="flex items-center gap-2 text-lg font-medium text-gold"
@@ -101,13 +103,6 @@ const Header = () => {
                   <Phone className="w-5 h-5" />
                   {PHONE_NUMBER}
                 </a>
-                <Link
-                  to="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="luxury-btn-primary text-center"
-                >
-                  Request Access
-                </Link>
               </div>
             </nav>
           </motion.div>
