@@ -185,6 +185,23 @@
     background-clip: text;
   }
   
+  /* Animated logo with gold shimmer */
+  .logo-animated {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--foreground)) 0%,
+      hsl(var(--gold-light)) 25%,
+      hsl(var(--foreground)) 50%,
+      hsl(var(--gold-light)) 75%,
+      hsl(var(--foreground)) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gold-shimmer 3s ease-in-out infinite;
+  }
+  
   /* Luxury hover effect */
   .hover-gold {
     @apply transition-all duration-300;

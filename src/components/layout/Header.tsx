@@ -26,8 +26,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl md:text-2xl font-serif font-semibold text-foreground tracking-tight uppercase">
-              Lux Concierge
+            <span className="text-xl md:text-2xl font-serif font-semibold tracking-tight uppercase logo-animated">
+              {SITE_NAME}
             </span>
           </Link>
 
