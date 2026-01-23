@@ -13,6 +13,7 @@ import OfferDetailPage from "./pages/OfferDetailPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
+import FAQPage from "./pages/FAQPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            <Route path="/faq" element={<FAQPage />} />
             
             {/* Category Routes - Dynamic */}
             <Route path="/:categoryId" element={<CategoryPage />} />
