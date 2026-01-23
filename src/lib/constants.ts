@@ -198,11 +198,156 @@ export const CATEGORIES: Category[] = [
     description: "Charter world-class motor yachts, sailing vessels, and superyachts in the most coveted destinations from the Caribbean to the Mediterranean.",
     href: "/yachts",
     offers: [
-      { city: "Miami", slug: "day-yacht-charter-miami", title: "Day Yacht Charter Miami" },
-      { city: "Monaco", slug: "superyacht-charter-monaco", title: "Superyacht Charter Monaco" },
-      { city: "St. Tropez", slug: "yacht-charter-st-tropez", title: "Yacht Charter St. Tropez" },
-      { city: "Bahamas", slug: "yacht-charter-bahamas", title: "Yacht Charter Bahamas" },
-      { city: "Ibiza", slug: "yacht-charter-ibiza", title: "Yacht Charter Ibiza" }
+      {
+        city: "Miami",
+        slug: "yacht-charter-miami",
+        title: "Yacht Charter Miami",
+        seo: {
+          metaTitle: "Luxury Yacht Charter in Miami | Verified Concierge Access",
+          metaDescription: "Private yacht and day charter in Miami. Discreet access to verified vessels. Request availability and pricing today.",
+          h1: "Luxury Yacht Charter in Miami",
+          subheading: "Concierge-coordinated access to motor yachts and crewed charters throughout South Florida."
+        },
+        pageCopy: [
+          "Miami is one of the world's premier yachting destinations. We coordinate private yacht access in Miami through verified operators, matching vessel availability to your timing, guest count, and preferences.",
+          "This service is designed for clients who value discretion, quality, and accuracy — not public listing platforms or mass-market brokers.",
+          "We do not publish vessel inventory. All access is coordinated privately."
+        ],
+        includedAccess: [
+          "Motor yachts and sailing vessels",
+          "Day charters and multi-day itineraries",
+          "Crewed and captained options",
+          "Catering, provisioning, and water toys",
+          "Dockside pickup throughout South Florida"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request availability for Miami" },
+          { step: "02", title: "We verify vessel options and crew" },
+          { step: "03", title: "You receive confirmed pricing and itineraries" },
+          { step: "04", title: "Charter executes directly with the operator" }
+        ],
+        nearbyAreas: ["Miami Beach", "Fort Lauderdale", "Biscayne Bay", "Key Biscayne"]
+      },
+      {
+        city: "Monaco",
+        slug: "superyacht-charter-monaco",
+        title: "Superyacht Charter Monaco",
+        seo: {
+          metaTitle: "Superyacht Charter in Monaco | Verified Concierge Access",
+          metaDescription: "Superyacht and luxury vessel charter in Monaco. Access verified operators throughout the French Riviera. Request availability today.",
+          h1: "Superyacht Charter in Monaco",
+          subheading: "Discreet, concierge-coordinated access to superyachts and luxury vessels on the Côte d'Azur."
+        },
+        pageCopy: [
+          "Monaco is the global epicenter of superyacht culture. We coordinate private yacht access in Monaco through licensed operators offering vessels from 30 to 100+ meters.",
+          "This service is built for clients requiring discretion, world-class crew, and verified execution — without public brokers or speculative listings.",
+          "All charters are coordinated privately through trusted maritime partners."
+        ],
+        includedAccess: [
+          "Superyachts and mega yachts",
+          "Day charters and weekly itineraries",
+          "Full crew, chef, and concierge service",
+          "Helicopter transfers and tender boats",
+          "Event and Grand Prix hospitality coordination"
+        ],
+        howItWorks: [
+          { step: "01", title: "Submit your Monaco request" },
+          { step: "02", title: "We verify vessel availability" },
+          { step: "03", title: "Confirm pricing and itinerary" },
+          { step: "04", title: "Operator executes the charter directly" }
+        ],
+        nearbyAreas: ["Monte Carlo", "Nice", "Cannes", "Antibes"]
+      },
+      {
+        city: "St. Tropez",
+        slug: "yacht-charter-st-tropez",
+        title: "Yacht Charter St. Tropez",
+        seo: {
+          metaTitle: "Luxury Yacht Charter in St. Tropez | Verified Concierge Access",
+          metaDescription: "Private yacht charter in St. Tropez. Discreet access to verified vessels on the French Riviera. Request availability and pricing.",
+          h1: "Luxury Yacht Charter in St. Tropez",
+          subheading: "Concierge-coordinated yacht access across the French Riviera's most iconic destination."
+        },
+        pageCopy: [
+          "St. Tropez defines Mediterranean yachting. We coordinate private yacht access through verified operators offering motor yachts, sailing vessels, and superyachts along the Côte d'Azur.",
+          "This service prioritizes discretion, experienced crew, and seamless execution — without public platforms or inventory browsing.",
+          "No public vessel listings. No speculative pricing."
+        ],
+        includedAccess: [
+          "Motor yachts and sailing yachts",
+          "Day trips and extended charters",
+          "Crewed service with local expertise",
+          "Beach club and restaurant coordination",
+          "Water sports and tender service"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request St. Tropez availability" },
+          { step: "02", title: "We confirm vessel and crew" },
+          { step: "03", title: "Receive verified pricing" },
+          { step: "04", title: "Charter operator handles execution" }
+        ],
+        nearbyAreas: ["Pampelonne Beach", "Ramatuelle", "Port Grimaud", "Sainte-Maxime"]
+      },
+      {
+        city: "Bahamas",
+        slug: "yacht-charter-bahamas",
+        title: "Yacht Charter Bahamas",
+        seo: {
+          metaTitle: "Luxury Yacht Charter in the Bahamas | Verified Concierge Access",
+          metaDescription: "Private yacht charter in the Bahamas. Access verified vessels for island-hopping and extended cruises. Request availability today.",
+          h1: "Luxury Yacht Charter in the Bahamas",
+          subheading: "Discreet, concierge-coordinated access to crewed yachts across the Bahamian islands."
+        },
+        pageCopy: [
+          "The Bahamas offers unmatched cruising across 700 islands and cays. We coordinate private yacht access through verified operators based in Nassau, the Exumas, and beyond.",
+          "This service is designed for clients seeking island-hopping itineraries, diving expeditions, and secluded anchorages — coordinated with discretion and precision.",
+          "We do not publish vessel inventory. All access is arranged privately."
+        ],
+        includedAccess: [
+          "Motor yachts and catamarans",
+          "Multi-day island-hopping itineraries",
+          "Crewed service with local captains",
+          "Diving, fishing, and water sports",
+          "Provisioning and private island access"
+        ],
+        howItWorks: [
+          { step: "01", title: "Submit your Bahamas request" },
+          { step: "02", title: "We verify vessel and routing" },
+          { step: "03", title: "Pricing and itinerary confirmed" },
+          { step: "04", title: "Operator executes directly" }
+        ],
+        nearbyAreas: ["Nassau", "Exumas", "Harbour Island", "Abacos"]
+      },
+      {
+        city: "Ibiza",
+        slug: "yacht-charter-ibiza",
+        title: "Yacht Charter Ibiza",
+        seo: {
+          metaTitle: "Luxury Yacht Charter in Ibiza | Verified Concierge Access",
+          metaDescription: "Private yacht charter in Ibiza. Discreet access to verified vessels across the Balearic Islands. Request availability and pricing.",
+          h1: "Luxury Yacht Charter in Ibiza",
+          subheading: "Concierge-coordinated yacht access across Ibiza and the Balearic Islands."
+        },
+        pageCopy: [
+          "Ibiza is the Mediterranean's most dynamic yachting destination. We coordinate private yacht access through verified operators offering day charters, sunset cruises, and multi-day itineraries.",
+          "This service is built for clients who value discretion, quality vessels, and seamless coordination — not public booking platforms.",
+          "All charters are arranged privately through trusted partners."
+        ],
+        includedAccess: [
+          "Motor yachts and sailing vessels",
+          "Day charters and sunset cruises",
+          "Crewed service with local expertise",
+          "Beach club and nightlife coordination",
+          "Formentera day trips and island tours"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request Ibiza availability" },
+          { step: "02", title: "We confirm vessel options" },
+          { step: "03", title: "Receive verified pricing" },
+          { step: "04", title: "Operator handles charter execution" }
+        ],
+        nearbyAreas: ["Ibiza Town", "San Antonio", "Formentera", "Es Vedrà"]
+      }
     ]
   },
   {
