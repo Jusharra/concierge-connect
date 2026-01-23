@@ -357,11 +357,149 @@ export const CATEGORIES: Category[] = [
     description: "Experience the world's most exclusive automobiles through curated rentals, driving experiences, and acquisition services.",
     href: "/exotic-cars",
     offers: [
-      { city: "Los Angeles", slug: "exotic-car-rental-los-angeles", title: "Exotic Car Rental Los Angeles" },
-      { city: "Miami", slug: "exotic-car-rental-miami", title: "Exotic Car Rental Miami" },
-      { city: "Dubai", slug: "exotic-car-rental-dubai", title: "Exotic Car Rental Dubai" },
-      { city: "Monaco", slug: "exotic-car-rental-monaco", title: "Exotic Car Rental Monaco" },
-      { city: "New York", slug: "exotic-car-rental-new-york", title: "Exotic Car Rental New York" }
+      {
+        city: "Miami",
+        slug: "exotic-car-rental-miami",
+        title: "Exotic Car Rental Miami",
+        seo: {
+          metaTitle: "Luxury Exotic Car Rental in Miami | Private Concierge Access",
+          metaDescription: "Exotic and luxury car rentals in Miami. Verified access to supercars and premium vehicles. Request availability today.",
+          h1: "Luxury Exotic Car Rental in Miami",
+          subheading: "Private access to exotic and luxury vehicles coordinated discreetly across South Florida."
+        },
+        pageCopy: [
+          "Miami is one of the premier markets for exotic and luxury vehicles. We coordinate private access to high-performance and luxury cars in Miami through verified partners, ensuring availability aligns with your timing and preferences.",
+          "This service is designed for clients who want premium vehicles without public listings, peer-to-peer platforms, or uncertain availability.",
+          "Vehicles are not listed publicly. Access is coordinated privately."
+        ],
+        includedAccess: [
+          "Supercars and high-performance vehicles",
+          "Luxury sedans and SUVs",
+          "Short-term and multi-day rentals",
+          "Chauffeur or self-drive options (where permitted)",
+          "Event, leisure, and executive use"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request exotic vehicle availability in Miami" },
+          { step: "02", title: "We verify vehicle fit and timing" },
+          { step: "03", title: "Pricing and rental terms are confirmed" },
+          { step: "04", title: "Vehicle is provided directly by the partner" }
+        ],
+        nearbyAreas: ["Miami Beach", "Brickell", "Fort Lauderdale"]
+      },
+      {
+        city: "Los Angeles",
+        slug: "exotic-car-rental-los-angeles",
+        title: "Exotic Car Rental Los Angeles",
+        seo: {
+          metaTitle: "Luxury Exotic Car Rental in Los Angeles | Private Concierge Access",
+          metaDescription: "Exotic and luxury car rentals in Los Angeles. Access verified supercars discreetly. Request availability today.",
+          h1: "Luxury Exotic Car Rental in Los Angeles",
+          subheading: "Concierge-coordinated access to exotic vehicles throughout Southern California."
+        },
+        pageCopy: [
+          "Los Angeles is a global hub for exotic and luxury automobiles. We coordinate private access to premium and high-performance vehicles through verified partners serving the Los Angeles area.",
+          "This service is ideal for entertainment, executive travel, and special occasions where presentation and reliability matter.",
+          "No public marketplaces. No speculative listings."
+        ],
+        includedAccess: [
+          "Exotic supercars and hypercars",
+          "Luxury sedans and SUVs",
+          "Daily, weekend, and extended rentals",
+          "Chauffeur services available upon request"
+        ],
+        howItWorks: [
+          { step: "01", title: "Submit a Los Angeles vehicle request" },
+          { step: "02", title: "Vehicle availability is verified" },
+          { step: "03", title: "Pricing and rental terms confirmed" },
+          { step: "04", title: "Partner executes directly" }
+        ],
+        nearbyAreas: ["Beverly Hills", "Hollywood", "Santa Monica"]
+      },
+      {
+        city: "New York",
+        slug: "exotic-car-rental-new-york",
+        title: "Exotic Car Rental New York",
+        seo: {
+          metaTitle: "Luxury Exotic Car Rental in New York | Private Concierge Access",
+          metaDescription: "Exotic and luxury car rentals in New York City. Discreet access to premium vehicles. Request availability today.",
+          h1: "Luxury Exotic Car Rental in New York",
+          subheading: "Private access to exotic vehicles coordinated across New York City."
+        },
+        pageCopy: [
+          "New York requires precision when it comes to luxury transportation. We coordinate exotic and luxury vehicle access in New York through verified partners serving the metropolitan area.",
+          "This service is designed for clients seeking premium vehicles without the friction of public rental platforms."
+        ],
+        includedAccess: [
+          "Exotic and high-performance vehicles",
+          "Luxury sedans and SUVs",
+          "Short-term and multi-day rentals",
+          "Executive and event transportation"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request vehicle access in New York" },
+          { step: "02", title: "We verify availability and terms" },
+          { step: "03", title: "Pricing is confirmed" },
+          { step: "04", title: "Vehicle is delivered or arranged" }
+        ],
+        nearbyAreas: ["Manhattan", "Brooklyn", "Long Island"]
+      },
+      {
+        city: "Dubai",
+        slug: "exotic-car-rental-dubai",
+        title: "Exotic Car Rental Dubai",
+        seo: {
+          metaTitle: "Luxury Exotic Car Rental in Dubai | Private Concierge Access",
+          metaDescription: "Exotic and luxury car rentals in Dubai. Access verified supercars discreetly. Request availability today.",
+          h1: "Luxury Exotic Car Rental in Dubai",
+          subheading: "Exclusive access to exotic vehicles coordinated across Dubai."
+        },
+        pageCopy: [
+          "Dubai is one of the world's leading markets for exotic automobiles. We coordinate private access to high-performance and luxury vehicles in Dubai through verified partners operating across the UAE.",
+          "This service prioritizes discretion, vehicle quality, and professional execution — without public listings."
+        ],
+        includedAccess: [
+          "Exotic supercars and luxury vehicles",
+          "Daily and extended rentals",
+          "Chauffeur or self-drive options",
+          "VIP and event transportation"
+        ],
+        howItWorks: [
+          { step: "01", title: "Submit a Dubai vehicle request" },
+          { step: "02", title: "Vehicle availability is verified" },
+          { step: "03", title: "Pricing and rental terms confirmed" },
+          { step: "04", title: "Partner executes directly" }
+        ],
+        nearbyAreas: ["Downtown Dubai", "Palm Jumeirah", "Dubai Marina"]
+      },
+      {
+        city: "London",
+        slug: "exotic-car-rental-london",
+        title: "Exotic Car Rental London",
+        seo: {
+          metaTitle: "Luxury Exotic Car Rental in London | Private Concierge Access",
+          metaDescription: "Exotic and luxury car rentals in London. Verified access to premium vehicles. Request availability today.",
+          h1: "Luxury Exotic Car Rental in London",
+          subheading: "Concierge-coordinated access to exotic vehicles across London and the UK."
+        },
+        pageCopy: [
+          "London offers premium access to exotic and luxury vehicles for executive and leisure use. We coordinate private vehicle access through verified partners serving London and surrounding regions.",
+          "This service is designed for discretion, reliability, and accurate coordination — without public rental platforms."
+        ],
+        includedAccess: [
+          "Exotic and luxury vehicles",
+          "Short-term and extended rentals",
+          "Chauffeur services available",
+          "Executive and private transport"
+        ],
+        howItWorks: [
+          { step: "01", title: "Request vehicle availability in London" },
+          { step: "02", title: "We verify availability and terms" },
+          { step: "03", title: "Pricing is confirmed" },
+          { step: "04", title: "Vehicle is arranged directly" }
+        ],
+        nearbyAreas: ["Mayfair", "Kensington", "Canary Wharf"]
+      }
     ]
   },
   {
