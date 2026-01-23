@@ -1,253 +1,340 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { MapPin, Phone, ArrowLeft, Check } from "lucide-react";
+import { MapPin, Phone, ChevronRight, Check, Shield } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import LeadForm from "@/components/ui/LeadForm";
-import { SITE_NAME, PHONE_NUMBER, PHONE_HREF, CATEGORIES } from "@/lib/constants";
+import LocalSEOBlock from "@/components/offer/LocalSEOBlock";
+import ComplianceDisclaimer from "@/components/offer/ComplianceDisclaimer";
+import { CATEGORIES, SITE_NAME, PHONE_NUMBER, PHONE_HREF, Category, Offer } from "@/lib/constants";
 import { getOfferImage } from "@/lib/offerImages";
 
-// Import category images as fallback
-import privateAirImage from "@/assets/category-private-air.jpg";
-import yachtsImage from "@/assets/category-yachts.jpg";
-import exoticCarsImage from "@/assets/category-exotic-cars.jpg";
-import propertiesImage from "@/assets/category-properties.jpg";
-import businessImage from "@/assets/category-business.jpg";
+// Category-specific hero images
+import heroPrivateAir from "@/assets/hero-slide-air.jpg";
+import heroYachts from "@/assets/hero-slide-yachts.jpg";
+import heroCars from "@/assets/hero-slide-cars.jpg";
+import heroProperties from "@/assets/hero-slide-properties.jpg";
+import heroBusiness from "@/assets/category-business.jpg";
 
 const categoryImages: Record<string, string> = {
-  "private-air": privateAirImage,
-  "yachts": yachtsImage,
-  "exotic-cars": exoticCarsImage,
-  "properties": propertiesImage,
-  "business-acquisitions": businessImage,
+  "private-air": heroPrivateAir,
+  "yachts": heroYachts,
+  "exotic-cars": heroCars,
+  "properties": heroProperties,
+  "business-acquisitions": heroBusiness,
 };
 
-const howAccessWorks = [
-  {
-    step: "01",
-    title: "Submit Your Request",
-    description: "Complete the form below with your requirements. Include preferred dates, group size, and any specific preferences."
-  },
-  {
-    step: "02", 
-    title: "Concierge Review",
-    description: "Our team reviews your request and verifies details. We'll reach out within 24 hours to discuss specifics."
-  },
-  {
-    step: "03",
-    title: "Partner Coordination",
-    description: "We connect you with our vetted partners who match your exact requirements and standards."
-  },
-  {
-    step: "04",
-    title: "Seamless Booking",
-    description: "Finalize details directly with our partner. Payment is handled off-site for maximum privacy and flexibility."
-  },
+// Default "How It Works" for offers without custom content
+const defaultHowItWorks = [
+  { step: "01", title: "Submit your request with dates and preferences" },
+  { step: "02", title: "We verify availability with trusted partners" },
+  { step: "03", title: "Receive confirmed pricing and options" },
+  { step: "04", title: "Payment and execution occur directly with partners" }
 ];
+
+// Default included access for categories without custom content
+const defaultIncludedAccess: Record<string, string[]> = {
+  "private-air": [
+    "Private jet charter options",
+    "Helicopter transfers",
+    "Domestic and international routing",
+    "Crew and ground coordination"
+  ],
+  "yachts": [
+    "Day charters and extended voyages",
+    "Motor yachts and sailing vessels",
+    "Crewed and captained options",
+    "Catering and event coordination"
+  ],
+  "exotic-cars": [
+    "Supercar and luxury vehicle access",
+    "Short-term and extended rentals",
+    "Delivery and pickup service",
+    "Insurance coordination"
+  ],
+  "properties": [
+    "Off-market property access",
+    "Vacation and investment properties",
+    "Private viewings arranged",
+    "Transaction coordination"
+  ],
+  "business-acquisitions": [
+    "Off-market deal flow",
+    "Due diligence coordination",
+    "Strategic advisory",
+    "Transaction support"
+  ]
+};
 
 const OfferDetailPage = () => {
   const { categoryId, offerSlug } = useParams<{ categoryId: string; offerSlug: string }>();
   
-  const category = CATEGORIES.find(c => c.id === categoryId);
-  const offer = category?.offers.find(o => o.slug === offerSlug);
-  
+  const category = CATEGORIES.find(cat => cat.id === categoryId) as Category | undefined;
+  const offer = category?.offers.find(o => o.slug === offerSlug) as Offer | undefined;
+
   if (!category || !offer) {
     return <Navigate to="/404" replace />;
   }
 
-  // Use offer-specific image if available, fallback to category image
   const heroImage = getOfferImage(offer.slug) || categoryImages[category.id];
-
-  // Generate SEO-friendly description
-  const seoDescription = `Request exclusive ${offer.title.toLowerCase()} access through our verified partner network. Concierge service, complete discretion, ${offer.city}.`;
+  
+  // Use SEO content if available, otherwise fallback
+  const metaTitle = offer.seo?.metaTitle || `${offer.title} | ${SITE_NAME}`;
+  const metaDescription = offer.seo?.metaDescription || 
+    `Request exclusive access to ${category.name.toLowerCase()} in ${offer.city}. Verified partners, discreet coordination.`;
+  const h1 = offer.seo?.h1 || offer.title;
+  const subheading = offer.seo?.subheading || category.description;
+  const pageCopy = offer.pageCopy || [];
+  const includedAccess = offer.includedAccess || defaultIncludedAccess[category.id] || [];
+  const howItWorks = offer.howItWorks || defaultHowItWorks;
+  const nearbyAreas = offer.nearbyAreas || [];
+  
+  const canonicalUrl = `https://luxeconcierge.com/${category.id}/${offer.slug}`;
 
   return (
-    <>
+    <Layout>
       <Helmet>
-        <title>{offer.title} | {SITE_NAME} - {offer.city}</title>
-        <meta name="description" content={seoDescription} />
-        <meta property="og:title" content={`${offer.title} | ${SITE_NAME}`} />
-        <meta property="og:description" content={seoDescription} />
-        <link rel="canonical" href={`${category.href}/${offer.slug}`} />
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
-      <Layout>
-        {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src={heroImage}
-              alt={`${offer.title} - ${offer.city}`}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-obsidian/20" />
-          </div>
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImage}
+            alt={h1}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+        </div>
 
-          <div className="relative container-luxury py-16 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
+        {/* Hero Content */}
+        <div className="container relative z-10 pt-32 pb-16">
+          <div className="max-w-3xl">
+            {/* Breadcrumb */}
+            <motion.nav
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
+              className="flex items-center gap-2 text-sm text-muted-foreground mb-6"
             >
-              {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-sm mb-6">
-                <Link to="/" className="text-muted-foreground hover:text-gold transition-colors">
-                  Home
-                </Link>
-                <span className="text-muted-foreground">/</span>
-                <Link to={category.href} className="text-muted-foreground hover:text-gold transition-colors">
-                  {category.name}
-                </Link>
-                <span className="text-muted-foreground">/</span>
-                <span className="text-foreground">{offer.city}</span>
-              </nav>
+              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+              <ChevronRight className="w-4 h-4" />
+              <Link to={category.href} className="hover:text-primary transition-colors">{category.name}</Link>
+              <ChevronRight className="w-4 h-4" />
+              <span className="text-foreground">{offer.city}</span>
+            </motion.nav>
 
-              {/* Location badge */}
-              <div className="flex items-center gap-2 text-gold text-sm mb-4">
-                <MapPin className="w-4 h-4" />
-                <span className="font-medium">{offer.city}</span>
-              </div>
+            {/* Location Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-primary text-sm mb-6"
+            >
+              <MapPin className="w-4 h-4" />
+              {offer.city}
+            </motion.div>
 
-              <h1 className="heading-display text-foreground mb-6">{offer.title}</h1>
+            {/* H1 - Only one per page */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4"
+            >
+              {h1}
+            </motion.h1>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#request-access" className="luxury-btn-primary">
-                  Request Access
-                </a>
-                <a href={PHONE_HREF} className="luxury-btn-outline">
-                  <Phone className="w-5 h-5" />
-                  Call Concierge
-                </a>
-              </div>
+            {/* Subheading */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl"
+            >
+              {subheading}
+            </motion.p>
+
+            {/* Hero CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <a
+                href="#request-form"
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Request Private Access
+              </a>
+              <a
+                href={PHONE_HREF}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-background/50 backdrop-blur-sm text-foreground font-semibold rounded-lg hover:bg-muted transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                Call Concierge
+              </a>
             </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Main Content */}
-        <section className="section-padding bg-gradient-dark">
-          <div className="container-luxury">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              {/* Content Column */}
-              <div className="lg:col-span-2 space-y-12">
-                {/* What This Offer Is */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <h2 className="heading-section text-foreground mb-6">
-                    About This Access
+      {/* Main Content */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Left Column - Content */}
+            <div className="lg:col-span-2 space-y-12">
+              {/* Trust & Positioning Block */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-muted/30 rounded-lg p-6 border border-border/50"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <Shield className="w-6 h-6 text-primary" />
+                  <h2 className="text-xl font-display font-semibold text-foreground">
+                    Why Clients Use Concierge Access Instead of Public Marketplaces
                   </h2>
-                  <div className="prose prose-invert max-w-none">
-                    <p className="body-large mb-4">
-                      Experience exclusive {category.name.toLowerCase()} access in {offer.city} through our curated network of 
-                      verified partners. This isn't a traditional rental or booking service—it's concierge-level access to 
-                      opportunities typically reserved for an elite clientele.
-                    </p>
-                    <p className="body-regular mb-4">
-                      Our {offer.city} {category.name.toLowerCase()} partners maintain the highest standards in the industry. 
-                      Each has been personally vetted by our team and consistently delivers experiences that exceed expectations.
-                    </p>
-                    <p className="body-regular">
-                      Whether this is your first inquiry or you're a returning client, our concierge team treats every 
-                      request with the same attention to detail and commitment to discretion.
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* How Access Works */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <h2 className="heading-section text-foreground mb-8">
-                    How Access Works
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {howAccessWorks.map((item, index) => (
-                      <div 
-                        key={item.step}
-                        className="luxury-card p-6"
-                      >
-                        <span className="text-3xl font-serif text-gold/30 mb-2 block">
-                          {item.step}
-                        </span>
-                        <h3 className="heading-card text-foreground mb-2">{item.title}</h3>
-                        <p className="body-regular">{item.description}</p>
-                      </div>
+                </div>
+                <div className="space-y-3 text-muted-foreground">
+                  <p>We do not list inventory publicly. We coordinate access through verified operators and partners based on your city, timing, and preferences.</p>
+                  <p className="font-medium text-foreground">This ensures:</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    {["Discretion", "Priority access", "Accurate availability", "Serious counterparties only"].map((item) => (
+                      <li key={item} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
                     ))}
-                  </div>
-                </motion.div>
+                  </ul>
+                  <p className="text-sm italic pt-2">No browsing. No spam. No wasted time.</p>
+                </div>
+              </motion.div>
 
-                {/* What's Included */}
+              {/* Page Copy - City-specific content */}
+              {pageCopy.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="space-y-4"
                 >
-                  <h2 className="heading-section text-foreground mb-6">
-                    What to Expect
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {[
-                      "Dedicated concierge support",
-                      "Verified partner network",
-                      "Complete discretion guaranteed",
-                      "Flexible scheduling options",
-                      "Customized experience",
-                      "24/7 availability",
-                      "No hidden fees",
-                      "Premium quality assured",
-                    ].map((item) => (
-                      <div key={item} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-gradient-gold flex items-center justify-center flex-shrink-0">
-                          <Check className="w-3 h-3 text-primary-foreground" />
-                        </div>
-                        <span className="text-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </div>
+                  {pageCopy.map((paragraph, index) => (
+                    <p key={index} className="text-muted-foreground leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))}
                 </motion.div>
+              )}
 
-                {/* Back to Category */}
-                <Link 
-                  to={category.href}
-                  className="inline-flex items-center gap-2 text-gold hover-gold"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  View all {category.name} offers
-                </Link>
-              </div>
+              {/* What's Included */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
+                  Included {category.name} Access
+                </h2>
+                <ul className="grid sm:grid-cols-2 gap-3">
+                  {includedAccess.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
 
-              {/* Form Column */}
-              <div className="lg:col-span-1">
-                <div id="request-access" className="sticky top-28">
-                  <LeadForm 
+              {/* How It Works */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-2xl font-display font-semibold text-foreground mb-6">
+                  How Concierge Access Works
+                </h2>
+                <div className="space-y-4">
+                  {howItWorks.map((step, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-semibold text-sm">
+                        {step.step}
+                      </span>
+                      <p className="text-muted-foreground pt-2">{step.title}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Local SEO Block */}
+              {nearbyAreas.length > 0 && (
+                <LocalSEOBlock city={offer.city} nearbyAreas={nearbyAreas} />
+              )}
+
+              {/* Back Link */}
+              <Link
+                to={category.href}
+                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+              >
+                <ChevronRight className="w-4 h-4 rotate-180" />
+                View all {category.name} locations
+              </Link>
+            </div>
+
+            {/* Right Column - Form */}
+            <div className="lg:col-span-1">
+              <div id="request-form" className="sticky top-24 space-y-6">
+                <div className="bg-card border border-border rounded-lg p-6">
+                  <h3 className="text-xl font-display font-semibold text-foreground mb-2">
+                    Request Private Access
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    Share your requirements and we'll coordinate verified access.
+                  </p>
+                  <LeadForm
                     category={category.name}
                     offer={offer.title}
                     offerCity={offer.city}
                     variant="hero"
                   />
+                </div>
 
-                  {/* Call Option */}
-                  <div className="mt-6 p-6 luxury-card text-center">
-                    <p className="text-sm text-muted-foreground mb-2">Prefer to speak directly?</p>
-                    <a href={PHONE_HREF} className="text-xl font-serif text-gold hover-gold block">
-                      {PHONE_NUMBER}
-                    </a>
-                    <p className="text-xs text-muted-foreground mt-2">Available 24/7</p>
-                  </div>
+                {/* Phone Card */}
+                <div className="bg-muted/30 border border-border/50 rounded-lg p-6 text-center">
+                  <p className="text-sm text-muted-foreground mb-2">Prefer to speak directly?</p>
+                  <a
+                    href={PHONE_HREF}
+                    className="inline-flex items-center gap-2 text-lg font-semibold text-primary hover:text-primary/80 transition-colors"
+                  >
+                    <Phone className="w-5 h-5" />
+                    {PHONE_NUMBER}
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </Layout>
-    </>
+
+          {/* Compliance Disclaimer */}
+          <ComplianceDisclaimer />
+        </div>
+      </section>
+    </Layout>
   );
 };
 
