@@ -9,6 +9,7 @@ import heroAir from "@/assets/hero-slide-air.jpg";
 import heroYachts from "@/assets/hero-slide-yachts.jpg";
 import heroCars from "@/assets/hero-slide-cars.jpg";
 import heroProperties from "@/assets/hero-slide-properties.jpg";
+import heroBusiness from "@/assets/hero-slide-business.jpg";
 
 interface HeroSlide {
   id: number;
@@ -63,10 +64,18 @@ const heroSlides: HeroSlide[] = [
   {
     id: 5,
     image: heroProperties,
-    headline: "Off-Market Properties.",
-    headlineAccent: "Private Introductions.",
-    subtext: "Exclusive estates and penthouses sourced through vetted networks — never listed publicly.",
+    headline: "Luxury Homes.",
+    headlineAccent: "Structured Terms.",
+    subtext: "Off-market estates with flexible financing options — coordinated through private networks.",
     primaryCta: { label: "Explore Properties", href: "/properties" },
+  },
+  {
+    id: 6,
+    image: heroBusiness,
+    headline: "Seller-Financed",
+    headlineAccent: "Business Acquisitions.",
+    subtext: "Confidential introductions to owner-operators ready for private transitions.",
+    primaryCta: { label: "Explore Opportunities", href: "/business-acquisitions" },
   },
 ];
 
