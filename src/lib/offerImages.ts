@@ -33,6 +33,21 @@ import businessRiverside from "@/assets/offers/business-riverside.jpg";
 import businessAllentown from "@/assets/offers/business-allentown.jpg";
 import businessKansasCity from "@/assets/offers/business-kansas-city.jpg";
 
+// Category-level hero images (fallback when an offer has no image of its own)
+import heroAir from "@/assets/hero-slide-air.jpg";
+import heroYachts from "@/assets/hero-slide-yachts.jpg";
+import heroCars from "@/assets/hero-slide-cars.jpg";
+import heroProperties from "@/assets/hero-slide-properties.jpg";
+import heroBusiness from "@/assets/category-business.jpg";
+
+export const categoryHeroImages: Record<string, string> = {
+  "private-air": heroAir,
+  yachts: heroYachts,
+  "exotic-cars": heroCars,
+  properties: heroProperties,
+  "business-acquisitions": heroBusiness,
+};
+
 // Map offer slugs to their images
 export const offerImages: Record<string, string> = {
   // Private Air

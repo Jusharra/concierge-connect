@@ -71,6 +71,21 @@ for (const m of manifest) {
   if (!m.indexable && !/noindex/.test(robots)) fail.push(`${m.path}: non-indexable page is missing noindex`);
 }
 
+// 3b. Content depth report for generated city x asset pages (warning only) ----
+const MIN_WORDS = 600;
+const thin: string[] = [];
+for (const m of manifest) {
+  const file = emitted.get(m.path);
+  if (!file || m.path.split("/").filter(Boolean).length < 2) continue;
+  const html = readFileSync(file, "utf8");
+  if (!/"@type":"Service"/.test(html)) continue; // only generated bookable pages
+  const text = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, " ").replace(/<[^>]+>/g, " ");
+  const words = text.split(/\s+/).filter(Boolean).length;
+  console.log(`  words ${String(words).padStart(5)}  ${m.path}`);
+  if (words < MIN_WORDS) thin.push(`${m.path} (${words})`);
+}
+if (thin.length) console.warn(`  ⚠ under ${MIN_WORDS} words: ${thin.join(", ")}. Add local detail (Hub Points, Local FAQs, Page Copy, seasonal or event notes) in Airtable.`);
+
 // 4. sitemap.xml / robots.txt / redirects -----------------------------------
 const today = new Date().toISOString().slice(0, 10);
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");

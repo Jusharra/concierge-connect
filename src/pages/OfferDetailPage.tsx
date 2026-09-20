@@ -1,5 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import NotFound from "./NotFound";
+import CityAssetPage from "./CityAssetPage";
+import { findOffer } from "@/lib/catalog";
 import { motion } from "framer-motion";
 import { MapPin, Phone, ChevronRight, Check, Shield } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -30,7 +32,7 @@ const defaultHowItWorks = [
   { step: "01", title: "Submit your request with dates and preferences" },
   { step: "02", title: "We verify availability with trusted partners" },
   { step: "03", title: "Receive confirmed pricing and options" },
-  { step: "04", title: "Payment and execution occur directly with partners" }
+  { step: "04", title: "Confirm your booking and pay the remaining balance directly to the provider" }
 ];
 
 // Default included access for categories without custom content
@@ -86,6 +88,11 @@ const businessAcquisitionsHowItWorks = [
 const OfferDetailPage = () => {
   const { categoryId, offerSlug } = useParams<{ categoryId: string; offerSlug: string }>();
   
+  // Bookable asset types (jets, yachts, exotic cars) render the data-driven city x asset page.
+  // Only offers that pass the publishing gate exist; anything else falls through to a real 404.
+  const published = categoryId && offerSlug ? findOffer(categoryId, offerSlug) : undefined;
+  if (published) return <CityAssetPage offer={published} />;
+
   const category = CATEGORIES.find(cat => cat.id === categoryId) as Category | undefined;
   const offer = category?.offers.find(o => o.slug === offerSlug) as Offer | undefined;
 

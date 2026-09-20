@@ -99,7 +99,7 @@ const LocationsPage = () => {
                     {location.offers.slice(0, 3).map((offer, i) => (
                       <Link
                         key={i}
-                        to={`/${offer.categoryId}/${offer.slug}`}
+                        to={`/${offer.categoryId}/${offer.slug}/`}
                         className="flex items-center justify-between py-2 px-3 rounded bg-background/50 hover:bg-background transition-colors text-sm"
                       >
                         <span className="text-foreground/80">{offer.category}</span>

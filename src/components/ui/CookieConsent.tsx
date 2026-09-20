@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CONSENT_EVENT } from "@/lib/analytics";
 
 const COOKIE_CONSENT_KEY = "lux-cookie-consent";
 
@@ -27,12 +28,14 @@ const CookieConsent = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
     setConsentStatus("accepted");
     setIsVisible(false);
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   };
 
   const handleDecline = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "declined");
     setConsentStatus("declined");
     setIsVisible(false);
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   };
 
   // Don't render if user has already made a choice

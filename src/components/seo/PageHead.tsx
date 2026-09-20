@@ -1,6 +1,7 @@
 import { Head } from "vite-react-ssg";
 import { SITE, absoluteUrl } from "@/config/site";
 import { canonicalPath } from "@/lib/seo";
+import { breadcrumbLd, type Crumb } from "@/lib/seo-templates";
 
 interface PageHeadProps {
   title: string;
@@ -11,16 +12,28 @@ interface PageHeadProps {
   noindex?: boolean;
   type?: "website" | "article";
   jsonLd?: object | object[];
+  /** Explicit breadcrumb trail. Defaults to Home > this page. Pass false to omit. */
+  crumbs?: Crumb[] | false;
 }
 
 /**
  * Every page renders exactly one PageHead. Because the site is pre-rendered,
  * everything here lands in the static HTML (view-source / curl).
  */
-const PageHead = ({ title, description, path, image, noindex, type = "website", jsonLd }: PageHeadProps) => {
+const PageHead = ({ title, description, path, image, noindex, type = "website", jsonLd, crumbs }: PageHeadProps) => {
   const url = absoluteUrl(canonicalPath(path));
   const ogImage = absoluteUrl(image || SITE.ogImagePath);
-  const blocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+  const supplied = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+  const hasBreadcrumb = supplied.some((b) => (b as { "@type"?: string })["@type"] === "BreadcrumbList");
+  const isHome = canonicalPath(path) === "/";
+  const trail: Crumb[] =
+    crumbs === false || hasBreadcrumb || noindex || isHome
+      ? []
+      : crumbs ?? [
+          { name: "Home", path: "/" },
+          { name: title.split(/ [|–-] /)[0].trim(), path },
+        ];
+  const blocks = trail.length ? [...supplied, breadcrumbLd(trail)] : supplied;
 
   return (
     <Head>

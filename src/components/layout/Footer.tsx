@@ -73,7 +73,7 @@ const Footer = () => {
               <li className="text-sm text-muted-foreground">Complete Discretion</li>
               <li className="text-sm text-muted-foreground">Verified Partners Only</li>
               <li className="text-sm text-muted-foreground">24/7 Concierge Support</li>
-              <li className="text-sm text-muted-foreground">No Booking Fees</li>
+              <li className="text-sm text-muted-foreground">Transparent Starting Prices</li>
               <li className="text-sm text-muted-foreground">White-Glove Service</li>
             </ul>
           </div>

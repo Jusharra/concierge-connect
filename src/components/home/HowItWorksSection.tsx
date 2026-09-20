@@ -15,13 +15,13 @@ const steps = [
   },
   {
     icon: Handshake,
-    title: "Partner Coordination",
-    description: "We connect you with our verified partners who match your specific requirements.",
+    title: "Confirmation",
+    description: "Availability and pricing are confirmed with the operator or partner for your dates.",
   },
   {
     icon: Sparkles,
     title: "Experience Delivered",
-    description: "Enjoy your curated experience with ongoing concierge support throughout.",
+    description: "Enjoy your experience with support from our team throughout.",
   },
 ];
 

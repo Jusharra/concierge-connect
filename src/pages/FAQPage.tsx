@@ -28,12 +28,12 @@ const faqSections: FAQSection[] = [
       {
         question: `What is ${SITE_NAME}?`,
         answer:
-          `${SITE_NAME} is a premier luxury concierge service that connects discerning clients with exclusive experiences and assets. We specialize in Private Air charters, Yacht charters, Exotic Car rentals, Luxury Properties, and Business Acquisitions. Our role is to coordinate introductions between verified clients and our network of trusted partners.`,
+          `${SITE_NAME} lets you book private jet charter, yacht charter and exotic car rental with vetted operators, and request private introductions for luxury properties and business acquisitions. Choose a package and reserve with a deposit, or request a quote for a custom trip.`,
       },
       {
         question: `Is ${SITE_NAME} a marketplace or booking platform?`,
         answer:
-          "No. We are a concierge coordination service, not a marketplace. We do not own or operate any of the luxury assets featured on our platform. Instead, we facilitate introductions between qualified clients and our verified partner network. All transactions occur directly between you and the service provider.",
+          "For private jets, yachts and exotic cars you can reserve online with a deposit or request a quote. The aircraft, vessels and vehicles are owned and operated by independent operators, and the operator confirms availability for your dates. Properties and business acquisitions are handled by private introduction, and those transactions occur directly between the parties.",
       },
       {
         question: "What categories of luxury services do you offer?",
@@ -53,17 +53,17 @@ const faqSections: FAQSection[] = [
       {
         question: "How do I request access to a service?",
         answer:
-          `Simply browse our offerings, select your desired category and location, and complete the inquiry form. A ${SITE_NAME} representative will contact you within 24 hours to discuss your requirements, verify your request, and coordinate the introduction to our partner.`,
+          `Browse our offerings, choose a category and city, then reserve a package with a deposit or request a quote. For properties and business acquisitions, complete the inquiry form and a ${SITE_NAME} representative will contact you within 24 hours.`,
       },
       {
         question: "What happens after I submit an inquiry?",
         answer:
-          "After you submit your request: (1) Our team reviews your inquiry and reaches out to understand your specific needs. (2) We verify your requirements and match you with the ideal partner from our network. (3) We coordinate an introduction and facilitate communication. (4) You work directly with the partner to finalize details and complete the transaction.",
+          "For jets, yachts and exotic cars: if you reserve, you pay a deposit and the operator confirms your trip; if you request a quote, we return with confirmed pricing and options and send a secure payment link for the deposit if you would like to proceed. The remaining balance is paid directly to the operator. For properties and business acquisitions: we review your inquiry, reach out to understand your needs and arrange a private introduction, then you work directly with the other party to finalize details.",
       },
       {
-        question: "How long does the coordination process take?",
+        question: "How long does it take?",
         answer:
-          "Most initial responses occur within 24 hours during business days. The complete coordination timeline depends on the complexity of your request, availability, and the specific service category. Urgent requests can often be expedited—please mention any time constraints in your inquiry.",
+          "Most initial responses occur within 24 hours during business days. The complete timeline depends on the complexity of your request, availability, and the specific service category. Urgent requests can often be expedited—please mention any time constraints in your inquiry.",
       },
       {
         question: "Can I request custom or bespoke experiences?",
@@ -88,7 +88,7 @@ const faqSections: FAQSection[] = [
       {
         question: "What if I have an issue with a partner?",
         answer:
-          "While transactions occur directly between you and the partner, we value your experience. If you encounter any issues, please contact us immediately. We will work to mediate the situation and, if necessary, remove partners who do not meet our quality standards from our network.",
+          "Although the remaining balance is paid directly to the operator, we value your experience. If you encounter any issues, please contact us immediately. We will work to mediate the situation and, if necessary, remove partners who do not meet our quality standards from our network.",
       },
       {
         question: `Can I become a partner with ${SITE_NAME}?`,
@@ -114,22 +114,22 @@ const faqSections: FAQSection[] = [
       {
         question: "How do payments work?",
         answer:
-          `All financial transactions occur directly between you and the service partner. ${SITE_NAME} does not process payments, hold funds, or act as an intermediary in financial matters. Payment terms, methods, and schedules are established between you and the partner during the booking process.`,
+          `For jets, yachts and exotic cars, you pay a deposit online when you reserve; the deposit is our booking fee and is shown before you pay. The remaining balance is paid directly to the operator when you meet. Prices shown are starting-at figures and the final price is confirmed before you pay. Properties and business acquisitions are transacted directly between the parties, and ${SITE_NAME} does not take payment for them.`,
       },
       {
         question: `Does ${SITE_NAME} charge a fee for its services?`,
         answer:
-          "Our coordination and introduction services are complimentary to clients. We receive compensation through our partner network, which does not affect the pricing you receive. This model ensures our interests align with providing you the best possible experience.",
+          "The deposit you pay when you reserve a jet, yacht or exotic car is our booking fee, and it is shown before you pay. The rest of the price is paid to the operator. For properties and business acquisitions, terms are explained before you commit.",
       },
       {
         question: "What is your refund policy?",
         answer:
-          "Since transactions occur directly with our partners, refund policies are determined by each individual service provider. We recommend reviewing cancellation and refund terms carefully before finalizing any booking. Our team can help clarify partner policies during the coordination process.",
+          "Each package states its refund terms before you pay, and you acknowledge them at checkout. Cancellation terms for the remaining balance are set by the operator and shared with you before you commit.",
       },
       {
         question: "Are there deposits required?",
         answer:
-          `Deposit requirements vary by service category and partner. Private aviation and yacht charters typically require deposits to secure bookings. Property transactions follow standard real estate practices. Your ${SITE_NAME} representative will provide clarity on any financial requirements during coordination.`,
+          "Reserving a jet, yacht or exotic car takes a deposit, shown on the package before you pay. The remaining balance is paid directly to the operator. Property transactions follow standard real estate practices, and any financial requirements are explained in your conversation with our team.",
       },
     ],
   },

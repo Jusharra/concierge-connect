@@ -33,7 +33,7 @@ const heroSlides: HeroSlide[] = [
     image: heroMain,
     headline: "Global Luxury Access.",
     headlineAccent: "Curated Privately.",
-    subtext: "Private air, elite yachts, exotic vehicles, and off-market properties — coordinated discreetly through verified partners.",
+    subtext: "Book private jets, yachts and exotic cars, or request a quote. Off-market properties and business acquisitions by private introduction.",
     primaryCta: { label: "Request Private Access", href: "/contact" },
     secondaryCta: { label: "Explore Categories", href: "/#categories" },
   },
@@ -42,7 +42,7 @@ const heroSlides: HeroSlide[] = [
     image: heroAir,
     headline: "Private Air Without",
     headlineAccent: "Public Marketplaces",
-    subtext: "Jet charter and helicopter coordination arranged city-specifically with licensed operators.",
+    subtext: "Jet and helicopter charter city by city with licensed operators. Book online or request a quote.",
     primaryCta: { label: "Explore Private Air", href: "/private-air" },
   },
   {
@@ -50,7 +50,7 @@ const heroSlides: HeroSlide[] = [
     image: heroYachts,
     headline: "Yacht Access, Curated —",
     headlineAccent: "Not Crowdsourced",
-    subtext: "Day charters and superyacht access are coordinated directly with captains and management firms.",
+    subtext: "Day charters and superyacht charters with professional captains and crews. Book online or request a quote.",
     primaryCta: { label: "Explore Yachts", href: "/yachts" },
   },
   {
@@ -58,7 +58,7 @@ const heroSlides: HeroSlide[] = [
     image: heroCars,
     headline: "Exotic Vehicles.",
     headlineAccent: "Discreet Delivery.",
-    subtext: "From Lamborghinis to vintage Porsches — curated access arranged through trusted partners in select cities.",
+    subtext: "From Lamborghinis to vintage Porsches, available in select cities. Book online or request a quote.",
     primaryCta: { label: "Explore Exotic Cars", href: "/exotic-cars" },
   },
   {

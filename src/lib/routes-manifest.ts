@@ -1,6 +1,7 @@
 // The single list of pages the site emits. Routes (getStaticPaths), the sitemap and
 // the build-time drift check all read from here so they cannot disagree.
 import { CATEGORIES, LEGACY_CATEGORIES } from "@/lib/constants";
+import { assetHubs, publishedOffers } from "@/lib/catalog";
 
 export interface ManifestEntry {
   path: string;
@@ -15,6 +16,11 @@ export const categoryStaticPaths = (): string[] => LEGACY_CATEGORIES.map((c) => 
 
 export const offerStaticPaths = (): string[] =>
   CATEGORIES.flatMap((c) => c.offers.map((o) => `${c.id}/${o.slug}`));
+
+export const assetHubStaticPaths = (): string[] => assetHubs().map((h) => `services/${h.asset.slug}`);
+
+export const packageStaticPaths = (): string[] =>
+  publishedOffers().flatMap((o) => o.packages.map((p) => `${o.categoryId}/${o.offerSlug}/${p.pkg.packageSlug}`));
 
 const STATIC_PAGES: ManifestEntry[] = [
   { path: "/", changefreq: "weekly", priority: 1.0, indexable: true },
@@ -35,10 +41,22 @@ export const getManifest = (): ManifestEntry[] => [
     priority: 0.9,
     indexable: true,
   })),
+  ...assetHubStaticPaths().map((p) => ({
+    path: `/${p}/`,
+    changefreq: "weekly" as const,
+    priority: 0.8,
+    indexable: true,
+  })),
   ...offerStaticPaths().map((p) => ({
     path: `/${p}/`,
     changefreq: "monthly" as const,
     priority: 0.7,
+    indexable: true,
+  })),
+  ...packageStaticPaths().map((p) => ({
+    path: `/${p}/`,
+    changefreq: "monthly" as const,
+    priority: 0.6,
     indexable: true,
   })),
 ];

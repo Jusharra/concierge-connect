@@ -44,7 +44,7 @@ const AccessPage = () => {
                 Private Access
               </h1>
               <p className="text-lg md:text-xl text-foreground/70 leading-relaxed">
-                Curated luxury experiences coordinated discreetly through our network of verified partners. 
+                Book private jets, yachts and exotic cars, or request a quote, with verified operators. 
                 Select a category to explore available services.
               </p>
             </motion.div>
@@ -110,7 +110,7 @@ const AccessPage = () => {
               {[
                 { step: "01", title: "Select", description: "Choose your category and destination" },
                 { step: "02", title: "Request", description: "Submit your requirements confidentially" },
-                { step: "03", title: "Coordination", description: "We connect you with verified partners" },
+                { step: "03", title: "Confirmation", description: "Availability and pricing are confirmed with the operator" },
                 { step: "04", title: "Experience", description: "Enjoy seamless luxury access" },
               ].map((item, index) => (
                 <motion.div

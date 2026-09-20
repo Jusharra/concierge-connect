@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import NotFound from "./NotFound";
+import { bookableCategoryIds } from "@/lib/catalog";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -122,7 +123,7 @@ const CategoryPage = () => {
                     title={offer.title}
                     city={offer.city}
                     subtitle={offer.seo?.h1?.split(" in ")[0] || offer.seo?.h1?.split(" — ")[0]}
-                    href={`${category.href}/${offer.slug}`}
+                    href={`${category.href}/${offer.slug}/`}
                     image={getOfferImage(offer.slug) || heroImage}
                     index={index}
                     variant={category.id === "business-acquisitions" ? "business" : "property"}
@@ -132,7 +133,7 @@ const CategoryPage = () => {
                     key={offer.slug}
                     title={offer.title}
                     city={offer.city}
-                    href={`${category.href}/${offer.slug}`}
+                    href={`${category.href}/${offer.slug}/`}
                     image={getOfferImage(offer.slug) || heroImage}
                     index={index}
                   />
@@ -159,8 +160,9 @@ const CategoryPage = () => {
                   Request {category.name} Access
                 </h2>
                 <p className="body-large mb-6">
-                  Submit your requirements and our concierge team will connect you with verified partners 
-                  who can fulfill your {category.name.toLowerCase()} needs.
+                  {bookableCategoryIds().includes(category.id)
+                    ? `Tell us about your ${category.name.toLowerCase()} plans and we will come back with confirmed options and pricing. Reserve with a deposit where available, or request a quote.`
+                    : `Submit your requirements and our concierge team will connect you with verified partners who can fulfill your ${category.name.toLowerCase()} needs.`}
                 </p>
                 
                 <div className="space-y-4 mb-8">

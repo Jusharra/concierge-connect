@@ -1,5 +1,5 @@
 import type { RouteRecord } from "vite-react-ssg";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,15 +15,26 @@ import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import FAQPage from "./pages/FAQPage";
 import NotFound from "./pages/NotFound";
-import { categoryStaticPaths, offerStaticPaths } from "./lib/routes-manifest";
+import Analytics from "./components/seo/Analytics";
+import AssetHubPage from "./pages/AssetHubPage";
+import PackagePage from "./pages/PackagePage";
+import { assetHubStaticPaths, categoryStaticPaths, offerStaticPaths, packageStaticPaths } from "./lib/routes-manifest";
+import { findPackage } from "./lib/catalog";
 
 const queryClient = new QueryClient();
+
+const PackageRoute = () => {
+  const { categoryId, offerSlug, packageSlug } = useParams();
+  const found = categoryId && offerSlug && packageSlug ? findPackage(categoryId, offerSlug, packageSlug) : undefined;
+  return found ? <PackagePage offer={found.offer} pkg={found.pkg} /> : <NotFound />;
+};
 
 const Root = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <Analytics />
       <Outlet />
     </TooltipProvider>
   </QueryClientProvider>
@@ -45,11 +56,17 @@ export const routes: RouteRecord[] = [
       { path: "terms", Component: TermsPage },
       { path: "faq", Component: FAQPage },
 
+      // Asset hubs: /services/yacht-charter/ (only while a city page for the asset is published)
+      { path: "services/:assetSlug", Component: AssetHubPage, getStaticPaths: () => assetHubStaticPaths() },
+
       // Category hubs: /private-air, /yachts, ...
       { path: ":categoryId", Component: CategoryPage, getStaticPaths: () => categoryStaticPaths() },
 
       // City x asset pages: /yachts/yacht-charter-miami
       { path: ":categoryId/:offerSlug", Component: OfferDetailPage, getStaticPaths: () => offerStaticPaths() },
+
+      // Package pages: /yachts/yacht-charter-los-angeles/catalina-weekend
+      { path: ":categoryId/:offerSlug/:packageSlug", Component: PackageRoute, getStaticPaths: () => packageStaticPaths() },
 
       // Rendered to dist/404.html (served with HTTP 404 by Netlify); also the client-side catch-all.
       { path: "404", Component: NotFound },

@@ -51,6 +51,9 @@ const Header = () => {
           {/* Desktop Phone - Visually Separated */}
           <div className="hidden lg:flex items-center gap-6">
             <div className="h-8 w-px bg-border/50" />
+            <Link to="/quote/" className="luxury-btn-primary !py-2 !px-5 text-sm" data-cta="header-quote">
+              Get a Quote
+            </Link>
             <a
               href={PHONE_HREF}
               className="flex items-center gap-2 text-sm font-medium text-gold hover-gold"
@@ -95,6 +98,14 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
+              <Link
+                to="/quote/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="luxury-btn-primary text-center"
+                data-cta="header-quote-mobile"
+              >
+                Get a Quote
+              </Link>
               <div className="pt-4 mt-4 border-t border-border/30">
                 <a
                   href={PHONE_HREF}
