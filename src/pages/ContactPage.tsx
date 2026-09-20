@@ -1,21 +1,18 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import LeadForm from "@/components/ui/LeadForm";
 import { SITE_NAME, PHONE_NUMBER, PHONE_HREF, EMAIL } from "@/lib/constants";
+import PageHead from "@/components/seo/PageHead";
 
 const ContactPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Contact | {SITE_NAME} - Request Luxury Access</title>
-        <meta 
-          name="description" 
-          content="Contact our concierge team for exclusive access to private jets, yachts, exotic cars, and luxury properties. Available 24/7 for your inquiries." 
-        />
-        <link rel="canonical" href="/contact" />
-      </Helmet>
+      <PageHead
+        title={`Contact | ${SITE_NAME} - Request Luxury Access`}
+        description="Contact our concierge team for exclusive access to private jets, yachts, exotic cars, and luxury properties. Available 24/7 for your inquiries."
+        path="/contact"
+      />
 
       <Layout>
         {/* Hero Section */}

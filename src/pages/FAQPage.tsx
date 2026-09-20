@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -10,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Phone, Mail } from "lucide-react";
+import PageHead from "@/components/seo/PageHead";
 
 interface FAQItem {
   question: string;
@@ -209,13 +209,11 @@ const faqSections: FAQSection[] = [
 const FAQPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Frequently Asked Questions | {SITE_NAME}</title>
-        <meta
-          name="description"
-          content={`Find answers to common questions about ${SITE_NAME} luxury concierge services, partner verification, transactions, and more.`}
-        />
-      </Helmet>
+      <PageHead
+        title={`Frequently Asked Questions | ${SITE_NAME}`}
+        description={`Find answers to common questions about ${SITE_NAME} luxury concierge services, partner verification, transactions, and more.`}
+        path="/faq"
+      />
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-b from-black via-obsidian to-background">

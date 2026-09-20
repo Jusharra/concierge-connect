@@ -1,20 +1,18 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { SITE_NAME, EMAIL, PHONE_NUMBER } from "@/lib/constants";
 import { SITE_URL } from "@/config/site";
+import PageHead from "@/components/seo/PageHead";
 
 const PrivacyPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Privacy Policy | {SITE_NAME}</title>
-        <meta
-          name="description"
-          content={`Privacy Policy for ${SITE_NAME}. Learn how we collect, use, and protect your personal information.`}
-        />
-      </Helmet>
+      <PageHead
+        title={`Privacy Policy | ${SITE_NAME}`}
+        description={`Privacy Policy for ${SITE_NAME}. Learn how we collect, use, and protect your personal information.`}
+        path="/privacy"
+      />
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-b from-black via-obsidian to-background">

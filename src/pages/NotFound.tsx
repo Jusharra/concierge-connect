@@ -1,19 +1,21 @@
 import { Link, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Phone, Home } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { SITE_NAME, PHONE_NUMBER, PHONE_HREF } from "@/lib/constants";
+import PageHead from "@/components/seo/PageHead";
 
 const NotFound = () => {
   const location = useLocation();
 
   return (
     <>
-      <Helmet>
-        <title>Page Not Found | {SITE_NAME}</title>
-        <meta name="robots" content="noindex" />
-      </Helmet>
+      <PageHead
+        title={`Page Not Found | ${SITE_NAME}`}
+        description="The page you are looking for does not exist."
+        path="/404"
+        noindex
+      />
 
       <Layout>
         <section className="min-h-[80vh] flex items-center justify-center section-padding bg-gradient-dark">

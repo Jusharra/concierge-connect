@@ -1,19 +1,17 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { SITE_NAME, EMAIL } from "@/lib/constants";
 import { SITE_URL } from "@/config/site";
+import PageHead from "@/components/seo/PageHead";
 
 const TermsPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Terms of Service | {SITE_NAME}</title>
-        <meta
-          name="description"
-          content={`Partnership Policy Terms and Conditions for ${SITE_NAME}, a product of CommuniTee.`}
-        />
-      </Helmet>
+      <PageHead
+        title={`Terms of Service | ${SITE_NAME}`}
+        description={`Partnership Policy Terms and Conditions for ${SITE_NAME}, a product of CommuniTee.`}
+        path="/terms"
+      />
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 bg-gradient-to-b from-black via-obsidian to-background">

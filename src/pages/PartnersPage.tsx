@@ -1,22 +1,19 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { SITE_NAME, PHONE_NUMBER, PHONE_HREF, EMAIL } from "@/lib/constants";
 import { Shield, Users, TrendingUp, Phone, Mail, ArrowRight } from "lucide-react";
+import PageHead from "@/components/seo/PageHead";
 
 const PartnersPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Partners | {SITE_NAME}</title>
-        <meta 
-          name="description" 
-          content="Partner with Luxe Concierge. We represent verified buyers and coordinate bookings for private aviation, yachts, exotic cars, properties, and business acquisitions." 
-        />
-        <link rel="canonical" href="/partners" />
-      </Helmet>
+      <PageHead
+        title={`Partners | ${SITE_NAME}`}
+        description={`Partner with ${SITE_NAME}. We represent verified buyers and coordinate bookings for private aviation, yachts, exotic cars, properties, and business acquisitions.`}
+        path="/partners"
+      />
 
       <Layout>
         {/* Hero Section */}

@@ -1,10 +1,10 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { SITE_NAME, CATEGORIES } from "@/lib/constants";
 import { MapPin, ArrowRight } from "lucide-react";
+import PageHead from "@/components/seo/PageHead";
 
 // Build unique locations from all offers
 const getLocationsWithOffers = () => {
@@ -37,14 +37,11 @@ const LocationsPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Locations | {SITE_NAME}</title>
-        <meta 
-          name="description" 
-          content="Global luxury access in Miami, Los Angeles, New York, Monaco, London, and beyond. Private jets, yachts, exotic cars, and properties in the world's most prestigious destinations." 
-        />
-        <link rel="canonical" href="/locations" />
-      </Helmet>
+      <PageHead
+        title={`Locations | ${SITE_NAME}`}
+        description="Global luxury access in Miami, Los Angeles, New York, Monaco, London, and beyond. Private jets, yachts, exotic cars, and properties in the world's most prestigious destinations."
+        path="/locations"
+      />
 
       <Layout>
         {/* Hero Section */}

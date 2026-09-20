@@ -1,3 +1,4 @@
+/// <reference types="vite-react-ssg" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -17,5 +18,12 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  // Pre-render every route to real HTML (nested: /foo/ -> dist/foo/index.html).
+  ssgOptions: {
+    dirStyle: "nested",
+    script: "async",
+    formatting: "none",
+    beastiesOptions: false,
   },
 }));

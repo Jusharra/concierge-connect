@@ -1,5 +1,5 @@
-import { useParams, Navigate, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { useParams, Link } from "react-router-dom";
+import NotFound from "./NotFound";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -16,6 +16,7 @@ import yachtsImage from "@/assets/category-yachts.jpg";
 import exoticCarsImage from "@/assets/category-exotic-cars.jpg";
 import propertiesImage from "@/assets/category-properties.jpg";
 import businessImage from "@/assets/category-business.jpg";
+import PageHead from "@/components/seo/PageHead";
 
 const categoryImages: Record<string, string> = {
   "private-air": privateAirImage,
@@ -31,23 +32,19 @@ const CategoryPage = () => {
   const category = CATEGORIES.find(c => c.id === categoryId);
   
   if (!category) {
-    return <Navigate to="/404" replace />;
+    return <NotFound />;
   }
 
   const heroImage = categoryImages[category.id];
 
   return (
     <>
-      <Helmet>
-        <title>{category.name} | {SITE_NAME} - Luxury {category.name} Access</title>
-        <meta 
-          name="description" 
-          content={`${category.description} Request private access through our verified partner network.`} 
-        />
-        <meta property="og:title" content={`${category.name} | ${SITE_NAME}`} />
-        <meta property="og:description" content={category.description} />
-        <link rel="canonical" href={category.href} />
-      </Helmet>
+      <PageHead
+        title={`${category.name} | ${SITE_NAME} - Luxury ${category.name} Access`}
+        description={`${category.description} Request private access through our verified partner network.`}
+        path={category.href}
+        image={heroImage}
+      />
 
       <Layout>
         {/* Hero Section */}

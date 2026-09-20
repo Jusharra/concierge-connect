@@ -1,5 +1,5 @@
-import { useParams, Navigate, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { useParams, Link } from "react-router-dom";
+import NotFound from "./NotFound";
 import { motion } from "framer-motion";
 import { MapPin, Phone, ChevronRight, Check, Shield } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -15,6 +15,7 @@ import heroYachts from "@/assets/hero-slide-yachts.jpg";
 import heroCars from "@/assets/hero-slide-cars.jpg";
 import heroProperties from "@/assets/hero-slide-properties.jpg";
 import heroBusiness from "@/assets/category-business.jpg";
+import PageHead from "@/components/seo/PageHead";
 
 const categoryImages: Record<string, string> = {
   "private-air": heroPrivateAir,
@@ -89,7 +90,7 @@ const OfferDetailPage = () => {
   const offer = category?.offers.find(o => o.slug === offerSlug) as Offer | undefined;
 
   if (!category || !offer) {
-    return <Navigate to="/404" replace />;
+    return <NotFound />;
   }
 
   const heroImage = getOfferImage(offer.slug) || categoryImages[category.id];
@@ -105,19 +106,13 @@ const OfferDetailPage = () => {
   const howItWorks = offer.howItWorks || (category.id === "properties" ? propertiesHowItWorks : (category.id === "business-acquisitions" ? businessAcquisitionsHowItWorks : defaultHowItWorks));
   const nearbyAreas = offer.nearbyAreas || [];
   
-  const canonicalUrl = `https://luxeconcierge.com/${category.id}/${offer.slug}`;
-
   return (
     <Layout>
-      <Helmet>
-        <title>{metaTitle}</title>
-        <meta name="description" content={metaDescription} />
-        <meta property="og:title" content={metaTitle} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalUrl} />
-        <link rel="canonical" href={canonicalUrl} />
-      </Helmet>
+      <PageHead
+        title={metaTitle}
+        description={metaDescription}
+        path={`/${category.id}/${offer.slug}`}
+      />
 
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center">

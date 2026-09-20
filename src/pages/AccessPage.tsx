@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
@@ -12,6 +11,7 @@ import categoryYachts from "@/assets/category-yachts.jpg";
 import categoryCars from "@/assets/category-exotic-cars.jpg";
 import categoryProperties from "@/assets/category-properties.jpg";
 import categoryBusiness from "@/assets/category-business.jpg";
+import PageHead from "@/components/seo/PageHead";
 
 const categoryImages: Record<string, string> = {
   "private-air": categoryAir,
@@ -24,14 +24,11 @@ const categoryImages: Record<string, string> = {
 const AccessPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Access | {SITE_NAME}</title>
-        <meta 
-          name="description" 
-          content="Private access to luxury experiences: private jets, yachts, exotic cars, off-market properties, and business acquisitions. Curated for discerning clients." 
-        />
-        <link rel="canonical" href="/access" />
-      </Helmet>
+      <PageHead
+        title={`Access | ${SITE_NAME}`}
+        description="Private access to luxury experiences: private jets, yachts, exotic cars, off-market properties, and business acquisitions. Curated for discerning clients."
+        path="/access"
+      />
 
       <Layout>
         {/* Hero Section */}

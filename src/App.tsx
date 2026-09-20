@@ -1,9 +1,9 @@
-import { HelmetProvider } from "react-helmet-async";
+import type { RouteRecord } from "vite-react-ssg";
+import { Outlet } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import AccessPage from "./pages/AccessPage";
 import LocationsPage from "./pages/LocationsPage";
@@ -15,41 +15,45 @@ import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import FAQPage from "./pages/FAQPage";
 import NotFound from "./pages/NotFound";
+import { categoryStaticPaths, offerStaticPaths } from "./lib/routes-manifest";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            
-            {/* Main Navigation Pages */}
-            <Route path="/access" element={<AccessPage />} />
-            <Route path="/locations" element={<LocationsPage />} />
-            <Route path="/partners" element={<PartnersPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            
-            {/* Category Routes - Dynamic */}
-            <Route path="/:categoryId" element={<CategoryPage />} />
-            
-            {/* Offer Detail Routes */}
-            <Route path="/:categoryId/:offerSlug" element={<OfferDetailPage />} />
-            
-            {/* Catch-all 404 */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
+const Root = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <Outlet />
+    </TooltipProvider>
+  </QueryClientProvider>
 );
 
-export default App;
+export const routes: RouteRecord[] = [
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      { index: true, Component: Index },
+
+      // Main navigation pages
+      { path: "access", Component: AccessPage },
+      { path: "locations", Component: LocationsPage },
+      { path: "partners", Component: PartnersPage },
+      { path: "contact", Component: ContactPage },
+      { path: "privacy", Component: PrivacyPage },
+      { path: "terms", Component: TermsPage },
+      { path: "faq", Component: FAQPage },
+
+      // Category hubs: /private-air, /yachts, ...
+      { path: ":categoryId", Component: CategoryPage, getStaticPaths: () => categoryStaticPaths() },
+
+      // City x asset pages: /yachts/yacht-charter-miami
+      { path: ":categoryId/:offerSlug", Component: OfferDetailPage, getStaticPaths: () => offerStaticPaths() },
+
+      // Rendered to dist/404.html (served with HTTP 404 by Netlify); also the client-side catch-all.
+      { path: "404", Component: NotFound },
+      { path: "*", Component: NotFound },
+    ],
+  },
+];
