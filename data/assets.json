@@ -1,0 +1,76 @@
+[
+  {
+    "id": "recIk0fdQs71fnLXV",
+    "slug": "business-acquisitions",
+    "name": "Business Acquisitions",
+    "categorySlug": "business-acquisitions",
+    "bookable": false,
+    "heroPromise": "",
+    "keywordVariants": [],
+    "whatsIncluded": [],
+    "faqs": [],
+    "active": true
+  },
+  {
+    "id": "recaFNa7qXTNffyOT",
+    "slug": "exotic-car-rental",
+    "name": "Exotic Car Rental",
+    "categorySlug": "exotic-cars",
+    "bookable": true,
+    "heroPromise": "",
+    "keywordVariants": [
+      "exotic car rental",
+      "luxury car rental",
+      "supercar rental"
+    ],
+    "whatsIncluded": [],
+    "faqs": [],
+    "active": true
+  },
+  {
+    "id": "recN57wKGgG45YO6G",
+    "slug": "private-jet-charter",
+    "name": "Private Jet Charter",
+    "categorySlug": "private-air",
+    "bookable": true,
+    "heroPromise": "",
+    "keywordVariants": [
+      "private jet charter",
+      "jet charter",
+      "private jet rental",
+      "empty leg flights"
+    ],
+    "whatsIncluded": [],
+    "faqs": [],
+    "active": true
+  },
+  {
+    "id": "recoYU854yvz130PN",
+    "slug": "properties",
+    "name": "Luxury Properties",
+    "categorySlug": "properties",
+    "bookable": false,
+    "heroPromise": "",
+    "keywordVariants": [],
+    "whatsIncluded": [],
+    "faqs": [],
+    "active": true
+  },
+  {
+    "id": "rectUBKwlyTequsYM",
+    "slug": "yacht-charter",
+    "name": "Yacht Charter",
+    "categorySlug": "yachts",
+    "bookable": true,
+    "heroPromise": "",
+    "keywordVariants": [
+      "yacht charter",
+      "luxury yacht rental",
+      "day yacht charter",
+      "superyacht charter"
+    ],
+    "whatsIncluded": [],
+    "faqs": [],
+    "active": true
+  }
+]

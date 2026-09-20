@@ -1,0 +1,1307 @@
+[
+  {
+    "id": "recYuFWBt03x3W7LY",
+    "name": "Cold Storage & Logistics Business Acquisitions Allentown",
+    "offerSlug": "cold-storage-logistics-business-allentown-pennsylvania",
+    "packageSlug": "",
+    "assetId": "recIk0fdQs71fnLXV",
+    "locationId": "rec2dCSIFjqHXQKzb",
+    "partnerIds": [],
+    "categorySlug": "business-acquisitions",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recMTKsVRII2DP8qQ",
+    "name": "Commercial Cleaning Business Acquisitions Kansas City",
+    "offerSlug": "commercial-cleaning-business-kansas-city-missouri",
+    "packageSlug": "",
+    "assetId": "recIk0fdQs71fnLXV",
+    "locationId": "rec0Il5zKZWprl2JJ",
+    "partnerIds": [],
+    "categorySlug": "business-acquisitions",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recELywaFJX8WjDQP",
+    "name": "Executive Home Access Naperville",
+    "offerSlug": "executive-homes-structured-terms-naperville",
+    "packageSlug": "",
+    "assetId": "recoYU854yvz130PN",
+    "locationId": "rec7MWRLe3Jy4fjId",
+    "partnerIds": [],
+    "categorySlug": "properties",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "reckMontfQfR2uBEe",
+    "name": "Exotic Car Rental Dubai",
+    "offerSlug": "exotic-car-rental-dubai",
+    "packageSlug": "",
+    "assetId": "recaFNa7qXTNffyOT",
+    "locationId": "rec6uiSu5MUsjNOKl",
+    "partnerIds": [],
+    "categorySlug": "exotic-cars",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "AED",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Exotic supercars and luxury vehicles",
+        "value": null
+      },
+      {
+        "label": "Daily and extended rentals",
+        "value": null
+      },
+      {
+        "label": "Chauffeur or self-drive options",
+        "value": null
+      },
+      {
+        "label": "VIP and event transportation",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Exotic Car Rental in Dubai",
+    "subheading": "Exotic supercars and luxury vehicles across Dubai. Request a quote for your dates.",
+    "pageCopy": [
+      "Exotic car rental in Dubai gives access to supercars and luxury vehicles for daily and extended rentals, with chauffeur or self-drive options and VIP event transportation. Request a quote and the rental partner confirms the vehicle and dates.",
+      "From Downtown Dubai to Palm Jumeirah and Dubai Marina, vehicles are matched to your plans. Prices are starting-at figures."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom rental",
+      "The rental partner confirms the vehicle and availability for your dates",
+      "You receive confirmed pricing and rental terms",
+      "Pay the remaining balance directly to the rental partner"
+    ],
+    "nearbyAreas": [
+      "Downtown Dubai",
+      "Palm Jumeirah",
+      "Dubai Marina"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recIi9J5W2YXUeFMn",
+    "name": "Exotic Car Rental London",
+    "offerSlug": "exotic-car-rental-london",
+    "packageSlug": "",
+    "assetId": "recaFNa7qXTNffyOT",
+    "locationId": "recC4VkQ4nuXV016i",
+    "partnerIds": [],
+    "categorySlug": "exotic-cars",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "GBP",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Exotic and luxury vehicles",
+        "value": null
+      },
+      {
+        "label": "Short-term and extended rentals",
+        "value": null
+      },
+      {
+        "label": "Chauffeur services available",
+        "value": null
+      },
+      {
+        "label": "Executive and private transport",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Exotic Car Rental in London",
+    "subheading": "Exotic and luxury vehicles across London and the UK. Request a quote for your dates.",
+    "pageCopy": [
+      "Exotic car rental in London covers exotic and luxury vehicles for executive and leisure use, on short-term and extended rentals, with chauffeur services available. Request a quote and the rental partner confirms availability and terms.",
+      "Vehicles are available across central London including Mayfair, Kensington and Canary Wharf. Prices are starting-at figures."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom rental",
+      "The rental partner confirms the vehicle and availability for your dates",
+      "You receive confirmed pricing and rental terms",
+      "Pay the remaining balance directly to the rental partner"
+    ],
+    "nearbyAreas": [
+      "Mayfair",
+      "Kensington",
+      "Canary Wharf"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "rec1ZGXWISaXtc2aJ",
+    "name": "Exotic Car Rental Los Angeles",
+    "offerSlug": "exotic-car-rental-los-angeles",
+    "packageSlug": "",
+    "assetId": "recaFNa7qXTNffyOT",
+    "locationId": "rechAWMgxSKPqTaOs",
+    "partnerIds": [],
+    "categorySlug": "exotic-cars",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "USD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Exotic supercars and hypercars",
+        "value": null
+      },
+      {
+        "label": "Luxury sedans and SUVs",
+        "value": null
+      },
+      {
+        "label": "Daily, weekend, and extended rentals",
+        "value": null
+      },
+      {
+        "label": "Chauffeur services available upon request",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Exotic Car Rental in Los Angeles",
+    "subheading": "Exotic supercars and luxury vehicles across Southern California. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Exotic car rental in Los Angeles offers supercars, hypercars, luxury sedans and SUVs for daily, weekend and extended rentals, suited to entertainment, executive travel and special occasions. Reserve with a deposit or request a quote and the rental partner confirms the vehicle and dates.",
+      "Chauffeur services are available on request. Prices are starting-at figures."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom rental",
+      "The rental partner confirms the vehicle and availability for your dates",
+      "You receive confirmed pricing and rental terms",
+      "Pay the remaining balance directly to the rental partner"
+    ],
+    "nearbyAreas": [
+      "Beverly Hills",
+      "Hollywood",
+      "Santa Monica"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recDYs4gUl2oCeBcp",
+    "name": "Exotic Car Rental Miami",
+    "offerSlug": "exotic-car-rental-miami",
+    "packageSlug": "",
+    "assetId": "recaFNa7qXTNffyOT",
+    "locationId": "recFVMlFCEE4w1xB9",
+    "partnerIds": [],
+    "categorySlug": "exotic-cars",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "USD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Supercars and high-performance vehicles",
+        "value": null
+      },
+      {
+        "label": "Luxury sedans and SUVs",
+        "value": null
+      },
+      {
+        "label": "Short-term and multi-day rentals",
+        "value": null
+      },
+      {
+        "label": "Chauffeur or self-drive options (where permitted)",
+        "value": null
+      },
+      {
+        "label": "Event, leisure, and executive use",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Exotic Car Rental in Miami",
+    "subheading": "Supercars, luxury sedans and SUVs across Miami and South Florida. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Exotic car rental in Miami covers supercars and high-performance vehicles as well as luxury sedans and SUVs, for short-term and multi-day rentals. Reserve with a deposit or request a quote, and the rental partner confirms the vehicle and your dates.",
+      "Chauffeur or self-drive options are available where permitted. Vehicles are not listed publicly, and prices are starting-at figures."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom rental",
+      "The rental partner confirms the vehicle and availability for your dates",
+      "You receive confirmed pricing and rental terms",
+      "Pay the remaining balance directly to the rental partner"
+    ],
+    "nearbyAreas": [
+      "Miami Beach",
+      "Brickell",
+      "Fort Lauderdale"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "reclhpqcyCjnukXzR",
+    "name": "Exotic Car Rental New York",
+    "offerSlug": "exotic-car-rental-new-york",
+    "packageSlug": "",
+    "assetId": "recaFNa7qXTNffyOT",
+    "locationId": "rec6T2zmCaHIIITfJ",
+    "partnerIds": [],
+    "categorySlug": "exotic-cars",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "USD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Exotic and high-performance vehicles",
+        "value": null
+      },
+      {
+        "label": "Luxury sedans and SUVs",
+        "value": null
+      },
+      {
+        "label": "Short-term and multi-day rentals",
+        "value": null
+      },
+      {
+        "label": "Executive and event transportation",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Exotic Car Rental in New York",
+    "subheading": "Exotic and luxury vehicles across New York City. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Exotic car rental in New York provides premium and high-performance vehicles for short-term and multi-day rentals, without the friction of public rental platforms. Request a quote and the rental partner confirms availability and terms.",
+      "Executive and event transportation is supported across Manhattan, Brooklyn and Long Island. Prices are starting-at figures."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom rental",
+      "The rental partner confirms the vehicle and availability for your dates",
+      "You receive confirmed pricing and rental terms",
+      "Pay the remaining balance directly to the rental partner"
+    ],
+    "nearbyAreas": [
+      "Manhattan",
+      "Brooklyn",
+      "Long Island"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recECDWzh1wmLmS3r",
+    "name": "Hospice & Senior Care Business Acquisitions Tampa",
+    "offerSlug": "hospice-senior-care-business-tampa-florida",
+    "packageSlug": "",
+    "assetId": "recIk0fdQs71fnLXV",
+    "locationId": "recb2eRmQeLflyDiG",
+    "partnerIds": [],
+    "categorySlug": "business-acquisitions",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "reca33RSYV7WEtiis",
+    "name": "HVAC & Refrigeration Business Acquisitions Riverside",
+    "offerSlug": "hvac-refrigeration-business-riverside-california",
+    "packageSlug": "",
+    "assetId": "recIk0fdQs71fnLXV",
+    "locationId": "recfKyUsCWXsfydQd",
+    "partnerIds": [],
+    "categorySlug": "business-acquisitions",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recs72v4XLyB3usmm",
+    "name": "Luxury Home Access Bellevue",
+    "offerSlug": "luxury-homes-private-terms-bellevue",
+    "packageSlug": "",
+    "assetId": "recoYU854yvz130PN",
+    "locationId": "recdUXRWshwDlXS3q",
+    "partnerIds": [],
+    "categorySlug": "properties",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recwXJAPnCaK4n58l",
+    "name": "Luxury Home Access Newport Beach",
+    "offerSlug": "luxury-homes-private-terms-newport-beach",
+    "packageSlug": "",
+    "assetId": "recoYU854yvz130PN",
+    "locationId": "recTCgyrFVU9dKMJJ",
+    "partnerIds": [],
+    "categorySlug": "properties",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recWshUaE1txnO7Nk",
+    "name": "Luxury Property Access Scottsdale",
+    "offerSlug": "luxury-homes-structured-terms-scottsdale",
+    "packageSlug": "",
+    "assetId": "recoYU854yvz130PN",
+    "locationId": "recuxFaA5BWH1h3Gw",
+    "partnerIds": [],
+    "categorySlug": "properties",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "rec1NLPqsM099R9eH",
+    "name": "Luxury Residence Access Boca Raton",
+    "offerSlug": "luxury-residences-flexible-terms-boca-raton",
+    "packageSlug": "",
+    "assetId": "recoYU854yvz130PN",
+    "locationId": "recMWuSbNWRNKW3xN",
+    "partnerIds": [],
+    "categorySlug": "properties",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recZJoHYVl6x7tggO",
+    "name": "Private Jet Charter Dubai",
+    "offerSlug": "private-jet-charter-dubai",
+    "packageSlug": "",
+    "assetId": "recN57wKGgG45YO6G",
+    "locationId": "rec6uiSu5MUsjNOKl",
+    "partnerIds": [],
+    "categorySlug": "private-air",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "AED",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Long-range private jets",
+        "value": null
+      },
+      {
+        "label": "Regional and international routing",
+        "value": null
+      },
+      {
+        "label": "Executive and VIP aviation",
+        "value": null
+      },
+      {
+        "label": "Crew, catering, and ground transportation",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Private Jet Charter in Dubai",
+    "subheading": "Long-range and regional private jets from Dubai. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Private jet charter in Dubai gives access to long-range aircraft for regional and intercontinental routing, with departures from Dubai International and Al Maktoum International. Request a quote for your route and the operator confirms availability.",
+      "Trips are built around discretion, international reach and reliable execution. Any price shown is a starting-at figure and is confirmed once the operator has your route and dates."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom trip",
+      "The operator confirms aircraft and availability for your dates",
+      "You receive confirmed pricing and trip details",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Dubai International",
+      "Al Maktoum International",
+      "Abu Dhabi"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recq7D3Ese66WzHc3",
+    "name": "Private Jet Charter London",
+    "offerSlug": "private-jet-charter-london",
+    "packageSlug": "",
+    "assetId": "recN57wKGgG45YO6G",
+    "locationId": "recC4VkQ4nuXV016i",
+    "partnerIds": [],
+    "categorySlug": "private-air",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "GBP",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Private jet charter across the UK and Europe",
+        "value": null
+      },
+      {
+        "label": "Short-haul and long-range aircraft",
+        "value": null
+      },
+      {
+        "label": "Executive and corporate aviation",
+        "value": null
+      },
+      {
+        "label": "International routing",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Private Jet Charter in London",
+    "subheading": "Private jets from London to the UK and Europe. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Private jet charter in London covers short-haul and long-range travel across the UK and Europe, with departures from airports such as Farnborough and Biggin Hill. Reserve with a deposit or request a quote and the operator confirms aircraft and routing.",
+      "Executive and corporate itineraries are supported with international routing. Prices are starting-at figures, confirmed against your route and dates."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom trip",
+      "The operator confirms aircraft and availability for your dates",
+      "You receive confirmed pricing and trip details",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Heathrow",
+      "Farnborough",
+      "Biggin Hill"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recn4B51bgrh3JGaZ",
+    "name": "Private Jet Charter Los Angeles",
+    "offerSlug": "private-jet-charter-los-angeles",
+    "packageSlug": "",
+    "assetId": "recN57wKGgG45YO6G",
+    "locationId": "rechAWMgxSKPqTaOs",
+    "partnerIds": [],
+    "categorySlug": "private-air",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "USD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Private jet charter (short-haul and long-range)",
+        "value": null
+      },
+      {
+        "label": "Helicopter transfers across LA metro",
+        "value": null
+      },
+      {
+        "label": "Multi-city and interstate routing",
+        "value": null
+      },
+      {
+        "label": "Executive and entertainment travel",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Private Jet Charter in Los Angeles",
+    "subheading": "Private jets and helicopters across Southern California. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Private jet charter in Los Angeles covers executive travel, entertainment schedules and time-sensitive routing across Southern California. Reserve with a deposit or request a quote, and the operator confirms aircraft and availability for your dates.",
+      "Helicopter transfers across the LA metro and departures from airports such as Van Nuys and Burbank keep ground time short when privacy and efficiency matter.",
+      "Prices are shown as starting-at figures. Your confirmed price reflects your route, aircraft and timing."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom trip",
+      "The operator confirms aircraft and availability for your dates",
+      "You receive confirmed pricing and trip details",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Beverly Hills",
+      "Santa Monica",
+      "Burbank",
+      "Van Nuys"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recP2JdERDEuFNUzT",
+    "name": "Private Jet Charter Miami",
+    "offerSlug": "private-jet-charter-miami",
+    "packageSlug": "",
+    "assetId": "recN57wKGgG45YO6G",
+    "locationId": "recFVMlFCEE4w1xB9",
+    "partnerIds": [],
+    "categorySlug": "private-air",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "USD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Light, midsize, and heavy private jets",
+        "value": null
+      },
+      {
+        "label": "Helicopter transfers and charters",
+        "value": null
+      },
+      {
+        "label": "Domestic and international routing",
+        "value": null
+      },
+      {
+        "label": "Same-day and multi-day itineraries",
+        "value": null
+      },
+      {
+        "label": "Crew, catering, and ground transportation",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Private Jet Charter in Miami",
+    "subheading": "Private jets and helicopters from Miami, Fort Lauderdale and Palm Beach. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Private jet charter in Miami runs through one of the world's busiest private aviation hubs. Choose a package and reserve with a deposit, or request a quote for a custom itinerary. Routing, timing and aircraft are confirmed by the operator before you pay the balance.",
+      "Light, midsize and heavy jets are available for same-day and multi-day trips, along with helicopter transfers across South Florida. Every trip is priced to your route and dates, so any price shown is a starting-at figure.",
+      "We do not publish aircraft inventory. Availability is confirmed by the operator for your dates."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom trip",
+      "The operator confirms aircraft and availability for your dates",
+      "You receive confirmed pricing and trip details",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Miami Beach",
+      "Fort Lauderdale",
+      "Palm Beach"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recrWEDWRzkQ82v5L",
+    "name": "Private Jet Charter New York",
+    "offerSlug": "private-jet-charter-new-york",
+    "packageSlug": "",
+    "assetId": "recN57wKGgG45YO6G",
+    "locationId": "rec6T2zmCaHIIITfJ",
+    "partnerIds": [],
+    "categorySlug": "private-air",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "USD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Private jet charter (domestic & international)",
+        "value": null
+      },
+      {
+        "label": "Helicopter transfers within NYC",
+        "value": null
+      },
+      {
+        "label": "Business and executive aviation",
+        "value": null
+      },
+      {
+        "label": "Short-notice and scheduled itineraries",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Private Jet Charter in New York",
+    "subheading": "Private jets and helicopters across New York City and the surrounding airports. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Private jet charter in New York serves business and executive travel across the metropolitan area, with departures from airports including Teterboro. Reserve with a deposit or request a quote and the operator confirms your routing and aircraft.",
+      "Short-notice and scheduled itineraries are both supported, with helicopter transfers within the city. There is no public inventory to browse: availability is confirmed for your dates."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom trip",
+      "The operator confirms aircraft and availability for your dates",
+      "You receive confirmed pricing and trip details",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Manhattan",
+      "Long Island",
+      "Westchester",
+      "Teterboro"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recyNLlkXkvH9aMgb",
+    "name": "Superyacht Charter Monaco",
+    "offerSlug": "superyacht-charter-monaco",
+    "packageSlug": "",
+    "assetId": "rectUBKwlyTequsYM",
+    "locationId": "rec8qjOqF3LND2Ffw",
+    "partnerIds": [],
+    "categorySlug": "yachts",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "EUR",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Superyachts and mega yachts",
+        "value": null
+      },
+      {
+        "label": "Day charters and weekly itineraries",
+        "value": null
+      },
+      {
+        "label": "Full crew, chef, and concierge service",
+        "value": null
+      },
+      {
+        "label": "Helicopter transfers and tender boats",
+        "value": null
+      },
+      {
+        "label": "Event and Grand Prix hospitality",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Superyacht Charter in Monaco",
+    "subheading": "Superyachts and luxury vessels on the Côte d'Azur. Request a quote for your dates.",
+    "pageCopy": [
+      "Superyacht charter in Monaco offers vessels from 30 to 100+ meters with full crew and chef service, in the centre of the Mediterranean superyacht scene. Request a quote and the operator confirms vessel availability and itinerary for your dates.",
+      "Day charters, weekly itineraries, tender boats and event hospitality including Grand Prix week are available. Prices are starting-at figures and depend heavily on season and vessel."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom charter",
+      "The operator confirms the vessel, crew and availability for your dates",
+      "You receive confirmed pricing and your itinerary",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Monte Carlo",
+      "Nice",
+      "Cannes",
+      "Antibes"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recZ3F8kxvMMiiYnc",
+    "name": "Waste Management Business Acquisitions Columbus",
+    "offerSlug": "waste-management-business-columbus-ohio",
+    "packageSlug": "",
+    "assetId": "recIk0fdQs71fnLXV",
+    "locationId": "reck6ohW58yieJeJ8",
+    "partnerIds": [],
+    "categorySlug": "business-acquisitions",
+    "bookingMode": "",
+    "startingPrice": null,
+    "currency": "",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recfQ4wc9U8B1eQzU",
+    "name": "Yacht Charter Bahamas",
+    "offerSlug": "yacht-charter-bahamas",
+    "packageSlug": "",
+    "assetId": "rectUBKwlyTequsYM",
+    "locationId": "recIq0CHzZtu22ocA",
+    "partnerIds": [],
+    "categorySlug": "yachts",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "BSD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Motor yachts and catamarans",
+        "value": null
+      },
+      {
+        "label": "Multi-day island-hopping itineraries",
+        "value": null
+      },
+      {
+        "label": "Crewed service with local captains",
+        "value": null
+      },
+      {
+        "label": "Diving, fishing, and water sports",
+        "value": null
+      },
+      {
+        "label": "Provisioning and private island access",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Yacht Charter in the Bahamas",
+    "subheading": "Crewed yachts and catamarans across the Bahamian islands. Request a quote for your dates.",
+    "pageCopy": [
+      "Yacht charter in the Bahamas opens up more than 700 islands and cays, with operators based in Nassau, the Exumas and beyond. Request a quote for your island-hopping, diving or fishing itinerary and the operator confirms the vessel and route.",
+      "Crewed motor yachts and catamarans are available for multi-day trips with local captains, provisioning and water sports. Prices are starting-at figures, and vessels are not listed publicly."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom charter",
+      "The operator confirms the vessel, crew and availability for your dates",
+      "You receive confirmed pricing and your itinerary",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Nassau",
+      "Exumas",
+      "Harbour Island",
+      "Abacos"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recjfVKkO5izoGgzA",
+    "name": "Yacht Charter Ibiza",
+    "offerSlug": "yacht-charter-ibiza",
+    "packageSlug": "",
+    "assetId": "rectUBKwlyTequsYM",
+    "locationId": "recHl7BWGkb3jrXg6",
+    "partnerIds": [],
+    "categorySlug": "yachts",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "EUR",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Motor yachts and sailing vessels",
+        "value": null
+      },
+      {
+        "label": "Day charters and sunset cruises",
+        "value": null
+      },
+      {
+        "label": "Crewed service with local expertise",
+        "value": null
+      },
+      {
+        "label": "Beach club and nightlife access",
+        "value": null
+      },
+      {
+        "label": "Formentera day trips and island tours",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Yacht Charter in Ibiza",
+    "subheading": "Day charters, sunset cruises and multi-day itineraries around Ibiza and Formentera. Request a quote for your dates.",
+    "pageCopy": [
+      "Yacht charter in Ibiza covers day charters, sunset cruises and multi-day itineraries around the Balearic Islands, including Formentera day trips. Request a quote and the operator confirms the vessel and your itinerary.",
+      "Motor yachts and sailing vessels are crewed by local specialists, with beach club and nightlife access available on request. Prices are starting-at figures."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom charter",
+      "The operator confirms the vessel, crew and availability for your dates",
+      "You receive confirmed pricing and your itinerary",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Ibiza Town",
+      "San Antonio",
+      "Formentera",
+      "Es Vedrà"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recM3Ritce8JMWqM6",
+    "name": "Yacht Charter Los Angeles",
+    "offerSlug": "yacht-charter-los-angeles",
+    "packageSlug": "",
+    "assetId": "rectUBKwlyTequsYM",
+    "locationId": "rechAWMgxSKPqTaOs",
+    "partnerIds": [],
+    "categorySlug": "yachts",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "USD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "",
+    "subheading": "",
+    "pageCopy": [],
+    "howItWorks": [],
+    "nearbyAreas": [],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "reciUX8G5DJjG4inK",
+    "name": "Yacht Charter Miami",
+    "offerSlug": "yacht-charter-miami",
+    "packageSlug": "",
+    "assetId": "rectUBKwlyTequsYM",
+    "locationId": "recFVMlFCEE4w1xB9",
+    "partnerIds": [],
+    "categorySlug": "yachts",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "USD",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Motor yachts and sailing vessels",
+        "value": null
+      },
+      {
+        "label": "Day charters and multi-day itineraries",
+        "value": null
+      },
+      {
+        "label": "Crewed and captained options",
+        "value": null
+      },
+      {
+        "label": "Catering, provisioning, and water toys",
+        "value": null
+      },
+      {
+        "label": "Dockside pickup throughout South Florida",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Yacht Charter in Miami",
+    "subheading": "Motor yachts and crewed charters across Biscayne Bay and South Florida. Reserve with a deposit or request a quote.",
+    "pageCopy": [
+      "Yacht charter in Miami puts you on the water in one of the world's premier yachting destinations. Reserve with a deposit or request a quote, and the operator confirms the vessel, crew and availability for your date and guest count.",
+      "Motor yachts and sailing vessels are available for day charters and multi-day itineraries, with crewed and captained options, catering and water toys. Prices are starting-at figures.",
+      "We do not publish vessel inventory. Availability is confirmed by the operator for your dates."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom charter",
+      "The operator confirms the vessel, crew and availability for your dates",
+      "You receive confirmed pricing and your itinerary",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Miami Beach",
+      "Fort Lauderdale",
+      "Biscayne Bay",
+      "Key Biscayne"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  },
+  {
+    "id": "recDpwOP64NiBlf6g",
+    "name": "Yacht Charter St. Tropez",
+    "offerSlug": "yacht-charter-st-tropez",
+    "packageSlug": "",
+    "assetId": "rectUBKwlyTequsYM",
+    "locationId": "recmZGSxLzChoIHiD",
+    "partnerIds": [],
+    "categorySlug": "yachts",
+    "bookingMode": "Quote",
+    "startingPrice": null,
+    "currency": "EUR",
+    "priceUnit": "",
+    "boldPromise": "",
+    "includedItems": [
+      {
+        "label": "Motor yachts and sailing yachts",
+        "value": null
+      },
+      {
+        "label": "Day trips and extended charters",
+        "value": null
+      },
+      {
+        "label": "Crewed service with local expertise",
+        "value": null
+      },
+      {
+        "label": "Beach club and restaurant arrangements",
+        "value": null
+      },
+      {
+        "label": "Water sports and tender service",
+        "value": null
+      }
+    ],
+    "valueStackTotal": null,
+    "riskReversalText": "",
+    "depositAmount": null,
+    "stripePaymentLink": "",
+    "metaTitle": "",
+    "metaDescription": "",
+    "heroImageUrl": "",
+    "h1": "Luxury Yacht Charter in St. Tropez",
+    "subheading": "Motor yachts, sailing vessels and superyachts along the Côte d'Azur. Request a quote for your dates.",
+    "pageCopy": [
+      "Yacht charter in St. Tropez is the classic Mediterranean experience: motor yachts, sailing vessels and superyachts anchored off Pampelonne and along the Côte d'Azur. Request a quote and the operator confirms vessel and crew for your dates.",
+      "Day trips and extended charters are crewed by local specialists, with water sports and tender service on board. Prices are starting-at figures."
+    ],
+    "howItWorks": [
+      "Choose a package and reserve with a deposit, or request a quote for a custom charter",
+      "The operator confirms the vessel, crew and availability for your dates",
+      "You receive confirmed pricing and your itinerary",
+      "Pay the remaining balance directly to the operator"
+    ],
+    "nearbyAreas": [
+      "Pampelonne Beach",
+      "Ramatuelle",
+      "Port Grimaud",
+      "Sainte-Maxime"
+    ],
+    "active": false,
+    "partnerCount": 0,
+    "locationLive": 0,
+    "ready": "Blocked"
+  }
+]

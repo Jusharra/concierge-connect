@@ -1,0 +1,18 @@
+[
+  {
+    "from": "/exotic-cars/exotic-car-rental-monaco",
+    "to": "/exotic-cars/"
+  },
+  {
+    "from": "/private-air/private-jet-charter-aspen",
+    "to": "/private-air/"
+  },
+  {
+    "from": "/private-air/private-jet-charter-las-vegas",
+    "to": "/private-air/"
+  },
+  {
+    "from": "/yachts/day-yacht-charter-miami",
+    "to": "/yachts/yacht-charter-miami/"
+  }
+]

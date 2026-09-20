@@ -10,6 +10,7 @@ import { join, relative, sep } from "node:path";
 import { getManifest } from "../src/lib/routes-manifest";
 import { SITE } from "../src/config/site";
 import { writeRedirects } from "./lib/redirects";
+import redirects from "../data/redirects.json";
 
 const DIST = join(process.cwd(), "dist");
 const fail: string[] = [];
@@ -85,7 +86,7 @@ const sitemap =
   `\n</urlset>\n`;
 writeFileSync(join(DIST, "sitemap.xml"), sitemap);
 writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${SITE.url}/sitemap.xml\n`);
-writeRedirects(DIST);
+writeRedirects(DIST, redirects as { from: string; to: string }[]);
 
 if (fail.length) {
   console.error(`\n✖ postbuild failed (${fail.length}):\n  - ${fail.join("\n  - ")}\n`);

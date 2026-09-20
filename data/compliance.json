@@ -1,0 +1,73 @@
+[
+  {
+    "id": "rec2NTNhpCuZkXq7e",
+    "ruleName": "California Seller of Travel Registration",
+    "jurisdiction": "US - California",
+    "status": "Draft",
+    "version": "",
+    "effectiveDate": "",
+    "fullText": "",
+    "registrationNumber": "",
+    "appliesAssetTypeIds": [
+      "recN57wKGgG45YO6G",
+      "rectUBKwlyTequsYM"
+    ],
+    "appliesLocationIds": []
+  },
+  {
+    "id": "reclanYYJdfyEAKIh",
+    "ruleName": "Exotic Car Rental Brokerage - requirements to confirm with attorney",
+    "jurisdiction": "Other",
+    "status": "Draft",
+    "version": "",
+    "effectiveDate": "",
+    "fullText": "",
+    "registrationNumber": "",
+    "appliesAssetTypeIds": [
+      "recaFNa7qXTNffyOT"
+    ],
+    "appliesLocationIds": []
+  },
+  {
+    "id": "recezyk1Z27kUIrCp",
+    "ruleName": "International Air Charter Disclosure (per country: UAE, UK, France/Monaco, Spain, Bahamas)",
+    "jurisdiction": "Other",
+    "status": "Draft",
+    "version": "",
+    "effectiveDate": "",
+    "fullText": "",
+    "registrationNumber": "",
+    "appliesAssetTypeIds": [
+      "recN57wKGgG45YO6G"
+    ],
+    "appliesLocationIds": []
+  },
+  {
+    "id": "rec7VcJUouCSVTozi",
+    "ruleName": "US Air Charter Broker Disclosure (14 CFR Part 295)",
+    "jurisdiction": "US Federal",
+    "status": "Draft",
+    "version": "",
+    "effectiveDate": "",
+    "fullText": "",
+    "registrationNumber": "",
+    "appliesAssetTypeIds": [
+      "recN57wKGgG45YO6G"
+    ],
+    "appliesLocationIds": []
+  },
+  {
+    "id": "recrgN5f9wDvgvead",
+    "ruleName": "Yacht Charter Brokerage - requirements to confirm with attorney",
+    "jurisdiction": "Other",
+    "status": "Draft",
+    "version": "",
+    "effectiveDate": "",
+    "fullText": "",
+    "registrationNumber": "",
+    "appliesAssetTypeIds": [
+      "rectUBKwlyTequsYM"
+    ],
+    "appliesLocationIds": []
+  }
+]

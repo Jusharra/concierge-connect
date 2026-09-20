@@ -1,6 +1,6 @@
 // The single list of pages the site emits. Routes (getStaticPaths), the sitemap and
 // the build-time drift check all read from here so they cannot disagree.
-import { CATEGORIES } from "@/lib/constants";
+import { CATEGORIES, LEGACY_CATEGORIES } from "@/lib/constants";
 
 export interface ManifestEntry {
   path: string;
@@ -10,7 +10,8 @@ export interface ManifestEntry {
   indexable: boolean;
 }
 
-export const categoryStaticPaths = (): string[] => CATEGORIES.map((c) => c.id);
+// Category hubs always exist (they are main pages); they list only published offers.
+export const categoryStaticPaths = (): string[] => LEGACY_CATEGORIES.map((c) => c.id);
 
 export const offerStaticPaths = (): string[] =>
   CATEGORIES.flatMap((c) => c.offers.map((o) => `${c.id}/${o.slug}`));

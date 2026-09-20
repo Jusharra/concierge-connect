@@ -1,4 +1,5 @@
 import { SITE } from "@/config/site";
+import { buildCategories } from "./catalog";
 
 // Site-wide constants (values live in src/config/site.ts)
 export const SITE_NAME = SITE.brand;
@@ -40,7 +41,10 @@ export interface Category {
 }
 
 // Categories with their metadata
-export const CATEGORIES: Category[] = [
+// Original hand-written catalogue. Kept as the seed/export source and as the content for the
+// non-bookable categories (properties, business acquisitions). Bookable categories are driven by
+// Airtable via data/*.json; see src/lib/catalog.ts.
+export const LEGACY_CATEGORIES: Category[] = [
   {
     id: "private-air",
     name: "Private Air",
@@ -803,3 +807,7 @@ export const CATEGORIES: Category[] = [
     ]
   }
 ];
+
+// What the site actually shows: bookable categories list only the offers that pass the publishing
+// gate (data/*.json from Airtable); the rest are unchanged.
+export const CATEGORIES: Category[] = buildCategories(LEGACY_CATEGORIES);

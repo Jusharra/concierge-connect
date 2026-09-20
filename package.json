@@ -5,12 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite-react-ssg build && tsx scripts/postbuild.ts",
-    "build:dev": "vite-react-ssg build --mode development && tsx scripts/postbuild.ts",
+    "build": "tsx scripts/sync-airtable.ts && vite-react-ssg build && tsx scripts/postbuild.ts",
+    "build:dev": "tsx scripts/sync-airtable.ts && vite-react-ssg build --mode development && tsx scripts/postbuild.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "sync": "tsx scripts/sync-airtable.ts",
+    "readiness": "tsx scripts/sync-airtable.ts --report",
+    "build:offline": "vite-react-ssg build && tsx scripts/postbuild.ts",
+    "seed:airtable": "tsx scripts/seed-airtable.ts"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
