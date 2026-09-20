@@ -23,15 +23,15 @@ interface FAQSection {
 
 const faqSections: FAQSection[] = [
   {
-    title: "About Lux Connoisseurs",
+    title: `About ${SITE_NAME}`,
     items: [
       {
-        question: "What is Lux Connoisseurs?",
+        question: `What is ${SITE_NAME}?`,
         answer:
-          "Lux Connoisseurs is a premier luxury concierge service that connects discerning clients with exclusive experiences and assets. We specialize in Private Air charters, Yacht charters, Exotic Car rentals, Luxury Properties, and Business Acquisitions. Our role is to coordinate introductions between verified clients and our network of trusted partners.",
+          `${SITE_NAME} is a premier luxury concierge service that connects discerning clients with exclusive experiences and assets. We specialize in Private Air charters, Yacht charters, Exotic Car rentals, Luxury Properties, and Business Acquisitions. Our role is to coordinate introductions between verified clients and our network of trusted partners.`,
       },
       {
-        question: "Is Lux Connoisseurs a marketplace or booking platform?",
+        question: `Is ${SITE_NAME} a marketplace or booking platform?`,
         answer:
           "No. We are a concierge coordination service, not a marketplace. We do not own or operate any of the luxury assets featured on our platform. Instead, we facilitate introductions between qualified clients and our verified partner network. All transactions occur directly between you and the service provider.",
       },
@@ -53,7 +53,7 @@ const faqSections: FAQSection[] = [
       {
         question: "How do I request access to a service?",
         answer:
-          "Simply browse our offerings, select your desired category and location, and complete the inquiry form. A Lux Connoisseurs representative will contact you within 24 hours to discuss your requirements, verify your request, and coordinate the introduction to our partner.",
+          `Simply browse our offerings, select your desired category and location, and complete the inquiry form. A ${SITE_NAME} representative will contact you within 24 hours to discuss your requirements, verify your request, and coordinate the introduction to our partner.`,
       },
       {
         question: "What happens after I submit an inquiry?",
@@ -91,7 +91,7 @@ const faqSections: FAQSection[] = [
           "While transactions occur directly between you and the partner, we value your experience. If you encounter any issues, please contact us immediately. We will work to mediate the situation and, if necessary, remove partners who do not meet our quality standards from our network.",
       },
       {
-        question: "Can I become a partner with Lux Connoisseurs?",
+        question: `Can I become a partner with ${SITE_NAME}?`,
         answer: (
           <>
             Yes, we welcome inquiries from qualified luxury service providers,
@@ -114,10 +114,10 @@ const faqSections: FAQSection[] = [
       {
         question: "How do payments work?",
         answer:
-          "All financial transactions occur directly between you and the service partner. Lux Connoisseurs does not process payments, hold funds, or act as an intermediary in financial matters. Payment terms, methods, and schedules are established between you and the partner during the booking process.",
+          `All financial transactions occur directly between you and the service partner. ${SITE_NAME} does not process payments, hold funds, or act as an intermediary in financial matters. Payment terms, methods, and schedules are established between you and the partner during the booking process.`,
       },
       {
-        question: "Does Lux Connoisseurs charge a fee for its services?",
+        question: `Does ${SITE_NAME} charge a fee for its services?`,
         answer:
           "Our coordination and introduction services are complimentary to clients. We receive compensation through our partner network, which does not affect the pricing you receive. This model ensures our interests align with providing you the best possible experience.",
       },
@@ -129,7 +129,7 @@ const faqSections: FAQSection[] = [
       {
         question: "Are there deposits required?",
         answer:
-          "Deposit requirements vary by service category and partner. Private aviation and yacht charters typically require deposits to secure bookings. Property transactions follow standard real estate practices. Your Lux Connoisseurs representative will provide clarity on any financial requirements during coordination.",
+          `Deposit requirements vary by service category and partner. Private aviation and yacht charters typically require deposits to secure bookings. Property transactions follow standard real estate practices. Your ${SITE_NAME} representative will provide clarity on any financial requirements during coordination.`,
       },
     ],
   },
@@ -170,7 +170,7 @@ const faqSections: FAQSection[] = [
     title: "Contact & Support",
     items: [
       {
-        question: "How can I contact Lux Connoisseurs?",
+        question: `How can I contact ${SITE_NAME}?`,
         answer: (
           <>
             You can reach us by phone at{" "}
@@ -213,7 +213,7 @@ const FAQPage = () => {
         <title>Frequently Asked Questions | {SITE_NAME}</title>
         <meta
           name="description"
-          content="Find answers to common questions about Lux Connoisseurs luxury concierge services, partner verification, transactions, and more."
+          content={`Find answers to common questions about ${SITE_NAME} luxury concierge services, partner verification, transactions, and more.`}
         />
       </Helmet>
 

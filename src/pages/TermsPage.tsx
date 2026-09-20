@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
-import { SITE_NAME } from "@/lib/constants";
+import { SITE_NAME, EMAIL } from "@/lib/constants";
+import { SITE_URL } from "@/config/site";
 
 const TermsPage = () => {
   return (
@@ -10,7 +11,7 @@ const TermsPage = () => {
         <title>Terms of Service | {SITE_NAME}</title>
         <meta
           name="description"
-          content="Partnership Policy Terms and Conditions for Lux Connoisseurs, a product of CommuniTee."
+          content={`Partnership Policy Terms and Conditions for ${SITE_NAME}, a product of CommuniTee.`}
         />
       </Helmet>
 
@@ -47,16 +48,16 @@ const TermsPage = () => {
               <h2 className="text-xl font-display font-bold text-gold mb-4">IMPORTANT</h2>
               <p className="text-champagne-muted leading-relaxed">
                 Please read these Partnership Policy (the "Terms") before using this website or any of our services.
-                These Terms governs to all site visitors to or users of Lux Connoisseurs, website located at{" "}
-                <a href="https://luxconnoisseurs.com" className="text-gold hover:text-gold-light transition-colors">
-                  https://luxconnoisseurs.com
+                These Terms governs to all site visitors to or users of {SITE_NAME}, website located at{" "}
+                <a href={SITE_URL} className="text-gold hover:text-gold-light transition-colors">
+                  {SITE_URL}
                 </a>{" "}
-                or any other sites operated by Lux Connoisseurs (jointly, the "Web site"). By accessing this Web site,
+                or any other sites operated by {SITE_NAME} (jointly, the "Web site"). By accessing this Web site,
                 you accept be bound by these Terms. If you do not accept the Terms of this Contract, please do leave
                 this website now.
               </p>
               <p className="text-champagne-muted leading-relaxed mt-4">
-                Lux Connoisseurs (or "we," "us" or "our") reserves the right to change these Terms, in whole or partly,
+                {SITE_NAME} (or "we," "us" or "our") reserves the right to change these Terms, in whole or partly,
                 at our sole discretion, as we might not provide you with notification of such changes. You must always
                 check these Terms as often as possible before you access our website. Your access of this website
                 following the changes to these Terms will means that you approve those changes.
@@ -173,7 +174,7 @@ const TermsPage = () => {
               <div className="legal-section">
                 <h3 className="text-xl font-display font-bold text-gold mb-4">7. Release</h3>
                 <p className="text-champagne-muted leading-relaxed">
-                  You hereby grant Lux Connoisseurs permission to use any and all of the uploaded photographs, videos,
+                  You hereby grant {SITE_NAME} permission to use any and all of the uploaded photographs, videos,
                   or material to be posted on this website without any payment or any other consideration. You hereby
                   waive any right to royalties or other compensation arising or related to the use of the photograph,
                   videos or materials. You also warrant that you own all submitted or uploaded photographs, videos or
@@ -280,7 +281,7 @@ const TermsPage = () => {
               <div className="legal-section">
                 <h3 className="text-xl font-display font-bold text-gold mb-4">14. Changes</h3>
                 <p className="text-champagne-muted leading-relaxed">
-                  Lux Connoisseurs reserves the right, at its sole discretion, to modify the Services or to modify these
+                  {SITE_NAME} reserves the right, at its sole discretion, to modify the Services or to modify these
                   Terms at any time and without prior notice. If we modify these Terms, we will either post the
                   modification on this website otherwise provide you with notice of the modification (for registered
                   users only). By continuing to access or use this website after we have posted a modification on
@@ -297,10 +298,10 @@ const TermsPage = () => {
               <p className="text-champagne-muted mb-4">
                 Contact us at{" "}
                 <a
-                  href="mailto:luxconnoisseurs@gmail.com"
+                  href={`mailto:${EMAIL}`}
                   className="text-gold hover:text-gold-light transition-colors"
                 >
-                  luxconnoisseurs@gmail.com
+                  {EMAIL}
                 </a>
               </p>
             </div>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { SITE_NAME, EMAIL, PHONE_NUMBER } from "@/lib/constants";
+import { SITE_URL } from "@/config/site";
 
 const PrivacyPage = () => {
   return (
@@ -11,7 +12,7 @@ const PrivacyPage = () => {
         <title>Privacy Policy | {SITE_NAME}</title>
         <meta
           name="description"
-          content="Privacy Policy for Lux Connoisseurs. Learn how we collect, use, and protect your personal information."
+          content={`Privacy Policy for ${SITE_NAME}. Learn how we collect, use, and protect your personal information.`}
         />
       </Helmet>
 
@@ -46,10 +47,10 @@ const PrivacyPage = () => {
             {/* Introduction */}
             <div className="mb-12 p-6 bg-gold/5 border border-gold/20 rounded-lg">
               <p className="text-champagne-muted leading-relaxed">
-                Lux Connoisseurs ("we," "us," or "our"), is committed to protecting your privacy. This Privacy Policy
+                {SITE_NAME} ("we," "us," or "our"), is committed to protecting your privacy. This Privacy Policy
                 explains how we collect, use, disclose, and safeguard your information when you visit our website{" "}
-                <a href="https://luxconnoisseurs.com" className="text-gold hover:text-gold-light transition-colors">
-                  https://luxconnoisseurs.com
+                <a href={SITE_URL} className="text-gold hover:text-gold-light transition-colors">
+                  {SITE_URL}
                 </a>{" "}
                 or use our concierge services. Please read this privacy policy carefully. If you do not agree with the
                 terms of this privacy policy, please do not access the site.
@@ -222,7 +223,7 @@ const PrivacyPage = () => {
                   If you have questions or comments about this privacy policy, you may contact us at:
                 </p>
                 <div className="p-4 bg-card border border-border rounded-lg">
-                  <p className="text-champagne font-semibold mb-2">Lux Connoisseurs</p>
+                  <p className="text-champagne font-semibold mb-2">{SITE_NAME}</p>
                   <p className="text-champagne-muted mt-2">
                     Email:{" "}
                     <a href={`mailto:${EMAIL}`} className="text-gold hover:text-gold-light transition-colors">
@@ -240,8 +241,8 @@ const PrivacyPage = () => {
                   </p>
                   <p className="text-champagne-muted">
                     Website:{" "}
-                    <a href="https://luxconnoisseurs.com" className="text-gold hover:text-gold-light transition-colors">
-                      https://luxconnoisseurs.com
+                    <a href={SITE_URL} className="text-gold hover:text-gold-light transition-colors">
+                      {SITE_URL}
                     </a>
                   </p>
                 </div>

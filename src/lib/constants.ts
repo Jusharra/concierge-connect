@@ -1,8 +1,10 @@
-// Site-wide constants
-export const SITE_NAME = "Lux Connoisseurs";
-export const PHONE_NUMBER = "+1 (678) 335 8105";
-export const PHONE_HREF = "tel:+16783358105";
-export const EMAIL = "luxconnoisseurs@gmail.com";
+import { SITE } from "@/config/site";
+
+// Site-wide constants (values live in src/config/site.ts)
+export const SITE_NAME = SITE.brand;
+export const PHONE_NUMBER = SITE.phone.display;
+export const PHONE_HREF = `tel:${SITE.phone.e164}`;
+export const EMAIL = SITE.email;
 
 // Type definitions for enhanced SEO content
 export interface OfferSEO {

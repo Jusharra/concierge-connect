@@ -43,7 +43,7 @@ export const offerImages: Record<string, string> = {
   "private-jet-charter-aspen": jetAspen,
   
   // Yachts
-  "day-yacht-charter-miami": yachtMiami,
+  "yacht-charter-miami": yachtMiami,
   "superyacht-charter-monaco": yachtMonaco,
   "yacht-charter-st-tropez": yachtStTropez,
   "yacht-charter-bahamas": yachtBahamas,
