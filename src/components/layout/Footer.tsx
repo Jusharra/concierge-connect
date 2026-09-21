@@ -91,6 +91,9 @@ const Footer = () => {
             <Link to="/terms" className="text-sm text-muted-foreground hover:text-gold transition-colors">
               Terms
             </Link>
+            <Link to="/trust/" className="text-sm text-muted-foreground hover:text-gold transition-colors">
+              Trust &amp; Compliance
+            </Link>
           </div>
         </div>
       </div>

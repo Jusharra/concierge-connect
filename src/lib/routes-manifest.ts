@@ -29,6 +29,7 @@ const STATIC_PAGES: ManifestEntry[] = [
   { path: "/partners/", changefreq: "monthly", priority: 0.6, indexable: true },
   { path: "/contact/", changefreq: "monthly", priority: 0.8, indexable: true },
   { path: "/faq/", changefreq: "monthly", priority: 0.6, indexable: true },
+  { path: "/trust/", changefreq: "monthly", priority: 0.5, indexable: true },
   { path: "/quote/", changefreq: "monthly", priority: 0.7, indexable: true },
   { path: "/book/", changefreq: "monthly", priority: 0.1, indexable: false },
   { path: "/thank-you/", changefreq: "monthly", priority: 0.1, indexable: false },
