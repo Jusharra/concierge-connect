@@ -102,6 +102,8 @@ const sitemap =
 writeFileSync(join(DIST, "sitemap.xml"), sitemap);
 writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${SITE.url}/sitemap.xml\n`);
 writeRedirects(DIST, redirects as { from: string; to: string }[]);
+// IndexNow ownership file (only when INDEXNOW_KEY is set): served at /{key}.txt
+if (process.env.INDEXNOW_KEY) writeFileSync(join(DIST, `${process.env.INDEXNOW_KEY}.txt`), process.env.INDEXNOW_KEY);
 
 if (fail.length) {
   console.error(`\n✖ postbuild failed (${fail.length}):\n  - ${fail.join("\n  - ")}\n`);

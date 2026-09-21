@@ -173,6 +173,7 @@ export const F = {
     quoteRequests: "fld0kiqD15j4Gi4O5",
     depositsTaken: "fldRHNyIZ9F7ydPWa",
     depositRevenue: "fldLNymwp0X2dDbJ4",
+    notes: "fldWj9ZjPNGkfNUxy",
     location: "fldEjdPAT0eiJHCrB",
     assetType: "fldlmHYnhG1Lanfpw",
   },
