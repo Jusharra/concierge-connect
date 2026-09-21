@@ -22,7 +22,7 @@ createServer((req, res) => {
     req.on("end", () => {
       console.log(`[mock-api] ${url.pathname} ${body}`);
       res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ ok: true }));
+      res.end(JSON.stringify(url.pathname.endsWith("create-checkout") ? { ok: true, url: "/thank-you/?mode=booking" } : { ok: true }));
     });
     return;
   }
