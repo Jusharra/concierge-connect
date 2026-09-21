@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { findOffer } from "@/lib/catalog";
 import { initAnalytics, track, type EventContext } from "@/lib/analytics";
+import { captureAttribution } from "@/lib/attribution";
 
 /** City / asset for the current URL, when it is a city x asset (or package) page. */
 export const contextForPath = (pathname: string): EventContext => {
@@ -20,6 +21,7 @@ const Analytics = () => {
   const location = useLocation();
 
   useEffect(() => {
+    captureAttribution();
     initAnalytics();
   }, []);
 

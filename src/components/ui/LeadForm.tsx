@@ -12,7 +12,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { supabase } from "@/lib/supabase";
+import { getAttribution } from "@/lib/attribution";
+import { track } from "@/lib/analytics";
 import { useToast } from "@/hooks/use-toast";
 
 // Form validation schema
@@ -48,6 +49,7 @@ const LeadForm = ({ category, offer, offerCity, variant = "default" }: LeadFormP
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -77,27 +79,34 @@ const LeadForm = ({ category, offer, offerCity, variant = "default" }: LeadFormP
 
     setIsSubmitting(true);
 
-    // Prepare data with hidden fields
+    // The server resolves asset type, location and package from the page path (our own data),
+    // so the browser never sends record IDs, prices or partner details.
+    const dates =
+      startDate && endDate
+        ? `${format(startDate, "yyyy-MM-dd")} to ${format(endDate, "yyyy-MM-dd")}`
+        : startDate
+          ? format(startDate, "yyyy-MM-dd")
+          : "";
     const submissionData = {
-      ...formData,
-      startDate: startDate ? format(startDate, "yyyy-MM-dd") : undefined,
-      endDate: endDate ? format(endDate, "yyyy-MM-dd") : undefined,
-      category: category || "General",
-      offer: offer || "General Inquiry",
-      offerCity: offerCity || formData.city,
-      pageUrl: location.pathname,
-      source: document.referrer || "Direct",
-      timestamp: new Date().toISOString(),
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      city: offerCity || "", // context only: the visitor's own city goes in the notes
+      dates,
+      notes: [formData.notes, `Customer's city: ${formData.city}`].filter(Boolean).join("\n\n"),
+      pagePath: location.pathname,
+      website: honeypot, // bot trap: must stay empty
+      ...getAttribution(),
     };
 
     try {
-      const { data, error } = await supabase.functions.invoke("submit-lead", {
-        body: submissionData,
+      const res = await fetch("/api/quote-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(submissionData),
       });
-
-      if (error) {
-        throw error;
-      }
+      if (!res.ok) throw new Error(`quote-request ${res.status}`);
+      track("quote_submit", { city: offerCity, category, offer, form: "lead_form" });
 
       setIsSuccess(true);
       toast({
@@ -153,6 +162,12 @@ const LeadForm = ({ category, offer, offerCity, variant = "default" }: LeadFormP
           </p>
         </div>
       )}
+
+      {/* Bot trap: hidden from people and assistive tech, bots fill it in */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>

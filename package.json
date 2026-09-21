@@ -14,7 +14,8 @@
     "sync": "tsx scripts/sync-airtable.ts",
     "readiness": "tsx scripts/sync-airtable.ts --report",
     "build:offline": "vite-react-ssg build && tsx scripts/postbuild.ts",
-    "seed:airtable": "tsx scripts/seed-airtable.ts"
+    "seed:airtable": "tsx scripts/seed-airtable.ts",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.functions.json"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",

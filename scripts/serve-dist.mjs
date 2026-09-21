@@ -14,6 +14,18 @@ const redirects = [...toml.matchAll(/\[\[redirects\]\]\s+from = "([^"]+)"\s+to =
 
 createServer((req, res) => {
   const url = new URL(req.url, "http://x");
+
+  // MOCK_API=1 logs POSTs to /api/* and answers ok, so forms can be exercised without Netlify.
+  if (process.env.MOCK_API && url.pathname.startsWith("/api/") && req.method === "POST") {
+    let body = "";
+    req.on("data", (c) => (body += c));
+    req.on("end", () => {
+      console.log(`[mock-api] ${url.pathname} ${body}`);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ ok: true }));
+    });
+    return;
+  }
   const path = normalize(decodeURIComponent(url.pathname)).split("\\").join("/");
   const bare = path.replace(/\/$/, "");
   const rule = redirects.find((r) => r.from === bare);

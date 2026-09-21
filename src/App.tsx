@@ -17,6 +17,8 @@ import FAQPage from "./pages/FAQPage";
 import NotFound from "./pages/NotFound";
 import Analytics from "./components/seo/Analytics";
 import AssetHubPage from "./pages/AssetHubPage";
+import QuotePage from "./pages/QuotePage";
+import ThankYouPage from "./pages/ThankYouPage";
 import PackagePage from "./pages/PackagePage";
 import { assetHubStaticPaths, categoryStaticPaths, offerStaticPaths, packageStaticPaths } from "./lib/routes-manifest";
 import { findPackage } from "./lib/catalog";
@@ -55,6 +57,8 @@ export const routes: RouteRecord[] = [
       { path: "privacy", Component: PrivacyPage },
       { path: "terms", Component: TermsPage },
       { path: "faq", Component: FAQPage },
+      { path: "quote", Component: QuotePage },
+      { path: "thank-you", Component: ThankYouPage },
 
       // Asset hubs: /services/yacht-charter/ (only while a city page for the asset is published)
       { path: "services/:assetSlug", Component: AssetHubPage, getStaticPaths: () => assetHubStaticPaths() },
