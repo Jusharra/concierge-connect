@@ -23,4 +23,10 @@ export default tseslint.config(
       "@typescript-eslint/no-unused-vars": "off",
     },
   },
+  {
+    // Server-side code and tests handle Airtable/Stripe payloads whose shapes are dynamic.
+    files: ["netlify/**/*.ts", "shared/**/*.ts", "scripts/**/*.ts", "**/*.test.{ts,tsx}"],
+    languageOptions: { globals: { ...globals.node } },
+    rules: { "@typescript-eslint/no-explicit-any": "off" },
+  },
 );
