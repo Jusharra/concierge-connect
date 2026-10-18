@@ -71,6 +71,8 @@ export const handleQuote = async (
     q.notes,
     !ctx.location && q.city ? `City requested: ${q.city}` : "",
     !ctx.asset && q.category ? `Service requested: ${q.category}` : "",
+    // e.g. a private-island listing: not an Asset Type, so keep the page it came from
+    !ctx.asset && q.pagePath ? `Enquiry page: ${q.pagePath}` : "",
   ]
     .filter(Boolean)
     .join("\n\n");

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, ArrowRight, Building2, Home } from "lucide-react";
+import { MapPin, ArrowRight, Building2, Home, Gem } from "lucide-react";
 
 interface CityCardProps {
   title: string;
@@ -9,7 +9,11 @@ interface CityCardProps {
   href: string;
   image?: string;
   index?: number;
-  variant?: "property" | "business" | "default";
+  variant?: "property" | "business" | "listing" | "default";
+  /** Real listings: e.g. "Starting at $14,500,000". */
+  priceLabel?: string;
+  /** Optional irresistible-offer line. */
+  offerText?: string;
 }
 
 const CityCard = ({ 
@@ -19,9 +23,11 @@ const CityCard = ({
   href, 
   image, 
   index = 0,
-  variant = "default"
+  variant = "default",
+  priceLabel,
+  offerText,
 }: CityCardProps) => {
-  const Icon = variant === "business" ? Building2 : variant === "property" ? Home : MapPin;
+  const Icon = variant === "business" ? Building2 : variant === "property" ? Home : variant === "listing" ? Gem : MapPin;
   
   return (
     <motion.div
@@ -60,11 +66,14 @@ const CityCard = ({
           <h3 className="text-xl font-display font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300 line-clamp-2">
             {subtitle || title}
           </h3>
+
+          {priceLabel && <p className="text-sm font-medium text-foreground">{priceLabel}</p>}
+          {offerText && <p className="mt-1 text-xs text-primary line-clamp-2">{offerText}</p>}
           
           {/* CTA */}
           <div className="flex items-center gap-2 text-muted-foreground group-hover:text-primary transition-colors duration-300 mt-3">
             <span className="text-sm font-medium">
-              {variant === "business" ? "Request Discussion" : variant === "property" ? "Explore Access" : "View Details"}
+              {variant === "business" ? "Request Discussion" : variant === "property" ? "Explore Access" : variant === "listing" ? "View Listing" : "View Details"}
             </span>
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </div>

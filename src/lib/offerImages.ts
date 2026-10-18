@@ -46,6 +46,8 @@ export const categoryHeroImages: Record<string, string> = {
   "exotic-cars": heroCars,
   properties: heroProperties,
   "business-acquisitions": heroBusiness,
+  // Placeholder until a dedicated Private Islands photo exists
+  "private-islands": heroProperties,
 };
 
 // Map offer slugs to their images

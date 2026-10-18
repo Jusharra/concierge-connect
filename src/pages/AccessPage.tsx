@@ -19,6 +19,8 @@ const categoryImages: Record<string, string> = {
   "exotic-cars": categoryCars,
   "properties": categoryProperties,
   "business-acquisitions": categoryBusiness,
+  // Placeholder until a dedicated Private Islands photo exists
+  "private-islands": categoryProperties,
 };
 
 const AccessPage = () => {
@@ -87,7 +89,7 @@ const AccessPage = () => {
                         {category.description}
                       </p>
                       <div className="flex items-center gap-2 text-gold font-medium text-sm group-hover:gap-3 transition-all">
-                        <span>Explore {category.offers.length} Locations</span>
+                        <span>{category.listingBased ? (category.offers.length > 0 ? `Explore ${category.offers.length} ${category.offers.length === 1 ? "Listing" : "Listings"}` : "Request Private Access") : `Explore ${category.offers.length} Locations`}</span>
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>

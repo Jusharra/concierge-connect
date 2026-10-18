@@ -29,6 +29,12 @@ export interface Offer {
   includedAccess?: string[];
   howItWorks?: OfferHowItWorks[];
   nearbyAreas?: string[];
+  /** Real-inventory listings (Airtable "Listings"): the price label shown on cards, e.g. "Starting at $14,500,000". */
+  price?: string;
+  /** Optional "irresistible offer" line shown on the card and page. */
+  irresistibleOffer?: string;
+  /** Direct photo URL for the card and hero. */
+  image?: string;
 }
 
 export interface Category {
@@ -38,6 +44,8 @@ export interface Category {
   description: string;
   href: string;
   offers: Offer[];
+  /** Offers come from Airtable "Listings" (real inventory) rather than being hand-written here. */
+  listingBased?: boolean;
 }
 
 // Categories with their metadata
@@ -805,6 +813,16 @@ export const LEGACY_CATEGORIES: Category[] = [
         nearbyAreas: ["Overland Park", "Olathe", "Independence", "Lee's Summit"]
       }
     ]
+  },
+  {
+    id: "private-islands",
+    name: "Private Islands",
+    tagline: "Island Ownership, Privately",
+    description: "Individual private islands, each listed with its own details and a starting price. Ask about any island, or tell us what you are looking for.",
+    href: "/private-islands",
+    listingBased: true,
+    // Populated at build time from Airtable "Listings" (Status = Live): see src/lib/catalog.ts
+    offers: []
   }
 ];
 

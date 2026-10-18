@@ -15,6 +15,8 @@ const categoryImages: Record<string, string> = {
   "exotic-cars": exoticCarsImage,
   "properties": propertiesImage,
   "business-acquisitions": businessImage,
+  // Placeholder until a dedicated Private Islands photo exists
+  "private-islands": propertiesImage,
 };
 
 const CategoriesSection = () => {
@@ -27,7 +29,7 @@ const CategoriesSection = () => {
           description="Each category connects you with our network of verified, vetted partners who share our commitment to excellence and discretion."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {CATEGORIES.map((category, index) => (
             <CategoryCard
               key={category.id}

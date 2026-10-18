@@ -15,7 +15,7 @@ import { configFromEnv, listRecords } from "../shared/airtable";
 import { F, T } from "../shared/airtable-schema";
 import { publishability } from "../shared/catalog-logic";
 import type { SiteData } from "../shared/data-types";
-import { transformAll, type RawTables } from "./lib/transform";
+import { listingCopyWarnings, skippedListings, transformAll, type RawTables } from "./lib/transform";
 
 const DATA_DIR = join(process.cwd(), "data");
 const FILES: Record<keyof SiteData, string> = {
@@ -26,6 +26,7 @@ const FILES: Record<keyof SiteData, string> = {
   compliance: "compliance.json",
   gbp: "gbp.json",
   redirects: "redirects.json",
+  listings: "listings.json",
 };
 
 const args = process.argv.slice(2);
@@ -66,12 +67,14 @@ const REQUEST = {
   compliance: values(F.compliance),
   gbp: values(F.gbpListings),
   pageRegistry: values(F.pageRegistry),
+  // Only the public Listings fields: Deal Structure and Internal Notes are not in F.listings.
+  listings: values(F.listings),
 };
 
 async function fetchRaw(): Promise<RawTables> {
   const cfg = configFromEnv();
   if (!cfg) throw new Error("AIRTABLE_PAT is not set");
-  const [assetTypes, locations, packages, partners, compliance, gbp, pageRegistry] = await Promise.all([
+  const [assetTypes, locations, packages, partners, compliance, gbp, pageRegistry, listings] = await Promise.all([
     listRecords(cfg, T.assetTypes, { fields: REQUEST.assetTypes }),
     listRecords(cfg, T.locations, { fields: REQUEST.locations }),
     listRecords(cfg, T.packages, { fields: REQUEST.packages }),
@@ -79,11 +82,17 @@ async function fetchRaw(): Promise<RawTables> {
     listRecords(cfg, T.compliance, { fields: REQUEST.compliance }),
     listRecords(cfg, T.gbpListings, { fields: REQUEST.gbp }),
     listRecords(cfg, T.pageRegistry, { fields: REQUEST.pageRegistry }),
+    listRecords(cfg, T.listings, { fields: REQUEST.listings }),
   ]);
-  return { assetTypes, locations, packages, partners, compliance, gbp, pageRegistry };
+  return { assetTypes, locations, packages, partners, compliance, gbp, pageRegistry, listings };
 }
 
 export const printReport = (data: SiteData) => {
+  if (data.listings?.length) {
+    console.log(`
+Listings: ${data.listings.length} live`);
+    for (const l of data.listings) console.log(`  ✔ /${l.categorySlug}/${l.slug}/  ${l.priceLabel || "(no price: shows price on request)"}`);
+  }
   const bookable = new Set(data.assetTypes.filter((a) => a.bookable).map((a) => a.id));
   const offers = data.packages.filter((p) => bookable.has(p.assetId));
   const rows = offers.map((p) => ({ p, r: publishability(p, data) }));
@@ -115,6 +124,8 @@ async function main() {
       console.warn("[sync-airtable] WARNING: Airtable returned no asset types or packages; keeping committed data/*.json.");
     } else {
       const changed = writeData(data);
+      for (const s of skippedListings(raw.listings ?? [])) console.warn(`[sync-airtable] WARNING: Live listing "${s.name}" NOT published: ${s.reasons.join("; ")}`);
+      for (const w of listingCopyWarnings(raw.listings ?? [])) console.warn(`[sync-airtable] WARNING: ${w}`);
       console.log(`[sync-airtable] synced from Airtable: ${data.locations.length} locations, ${data.packages.length} packages, ${data.partners.length} partners, ${data.compliance.length} compliance rules (${changed} file(s) changed)`);
     }
   }

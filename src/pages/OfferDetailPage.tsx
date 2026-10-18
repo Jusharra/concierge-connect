@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import NotFound from "./NotFound";
 import CityAssetPage from "./CityAssetPage";
-import { findOffer } from "@/lib/catalog";
+import ListingPage from "./ListingPage";
+import { findListing, findOffer } from "@/lib/catalog";
 import { motion } from "framer-motion";
 import { MapPin, Phone, ChevronRight, Check, Shield } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -92,6 +93,10 @@ const OfferDetailPage = () => {
   // Only offers that pass the publishing gate exist; anything else falls through to a real 404.
   const published = categoryId && offerSlug ? findOffer(categoryId, offerSlug) : undefined;
   if (published) return <CityAssetPage offer={published} />;
+
+  // Real inventory (e.g. a private island) from Airtable "Listings": only Live, complete rows exist.
+  const listing = categoryId && offerSlug ? findListing(categoryId, offerSlug) : undefined;
+  if (listing) return <ListingPage listing={listing} />;
 
   const category = CATEGORIES.find(cat => cat.id === categoryId) as Category | undefined;
   const offer = category?.offers.find(o => o.slug === offerSlug) as Offer | undefined;

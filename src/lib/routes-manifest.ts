@@ -1,7 +1,7 @@
 // The single list of pages the site emits. Routes (getStaticPaths), the sitemap and
 // the build-time drift check all read from here so they cannot disagree.
 import { CATEGORIES, LEGACY_CATEGORIES } from "@/lib/constants";
-import { assetHubs, publishedOffers } from "@/lib/catalog";
+import { assetHubs, categoryIsIndexable, publishedOffers } from "@/lib/catalog";
 
 export interface ManifestEntry {
   path: string;
@@ -39,11 +39,12 @@ const STATIC_PAGES: ManifestEntry[] = [
 
 export const getManifest = (): ManifestEntry[] => [
   ...STATIC_PAGES,
-  ...categoryStaticPaths().map((id) => ({
-    path: `/${id}/`,
+  ...CATEGORIES.map((c) => ({
+    path: `/${c.id}/`,
     changefreq: "weekly" as const,
     priority: 0.9,
-    indexable: true,
+    // A listing-based hub with no Live listings is rendered (noindex) but kept out of the sitemap.
+    indexable: categoryIsIndexable(c),
   })),
   ...assetHubStaticPaths().map((p) => ({
     path: `/${p}/`,

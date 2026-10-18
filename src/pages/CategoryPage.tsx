@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import NotFound from "./NotFound";
-import { bookableCategoryIds } from "@/lib/catalog";
+import { bookableCategoryIds, categoryIsIndexable } from "@/lib/catalog";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -25,6 +25,8 @@ const categoryImages: Record<string, string> = {
   "exotic-cars": exoticCarsImage,
   "properties": propertiesImage,
   "business-acquisitions": businessImage,
+  // Placeholder until a dedicated Private Islands photo exists
+  "private-islands": propertiesImage,
 };
 
 const CategoryPage = () => {
@@ -41,10 +43,11 @@ const CategoryPage = () => {
   return (
     <>
       <PageHead
-        title={`${category.name} | ${SITE_NAME} - Luxury ${category.name} Access`}
-        description={`${category.description} Request private access through our verified partner network.`}
+        title={category.listingBased ? `${category.name} | ${SITE_NAME}` : `${category.name} | ${SITE_NAME} - Luxury ${category.name} Access`}
+        description={category.listingBased ? category.description : `${category.description} Request private access through our verified partner network.`}
         path={category.href}
         image={heroImage}
+        noindex={!categoryIsIndexable(category)}
       />
 
       <Layout>
@@ -98,13 +101,17 @@ const CategoryPage = () => {
         <section id="offers" className="section-padding bg-gradient-dark">
           <div className="container-luxury">
             <SectionHeading
-              label={category.id === "properties" ? "Markets" : category.id === "business-acquisitions" ? "Verticals" : "Available Access"}
-              title={category.id === "properties" 
+              label={category.listingBased ? "Listings" : category.id === "properties" ? "Markets" : category.id === "business-acquisitions" ? "Verticals" : "Available Access"}
+              title={category.listingBased
+                ? `${category.name} Available Now`
+                : category.id === "properties" 
                 ? "Explore Property Markets" 
                 : category.id === "business-acquisitions"
                   ? "Business Transition Opportunities"
                   : `${category.name} by City`}
-              description={category.id === "properties"
+              description={category.listingBased
+                ? "Each island is listed individually with its own details and a starting price. Select one to learn more."
+                : category.id === "properties"
                 ? "Private access to luxury homes through structured terms. Select a market to explore opportunities."
                 : category.id === "business-acquisitions"
                   ? "Seller-financed transitions in established, owner-operated businesses. Select a vertical to learn more."
@@ -116,8 +123,25 @@ const CategoryPage = () => {
                 ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
             }`}>
+              {category.listingBased && category.offers.length === 0 && (
+                <p className="md:col-span-2 lg:col-span-3 text-center text-muted-foreground">
+                  No listings are available at the moment. Tell us what you are looking for below and we will come back to you.
+                </p>
+              )}
               {category.offers.map((offer, index) => (
-                category.id === "properties" || category.id === "business-acquisitions" ? (
+                category.listingBased ? (
+                  <CityCard
+                    key={offer.slug}
+                    title={offer.title}
+                    city={offer.city}
+                    href={`${category.href}/${offer.slug}/`}
+                    image={offer.image || heroImage}
+                    index={index}
+                    variant="listing"
+                    priceLabel={offer.price}
+                    offerText={offer.irresistibleOffer}
+                  />
+                ) : category.id === "properties" || category.id === "business-acquisitions" ? (
                   <CityCard
                     key={offer.slug}
                     title={offer.title}
@@ -157,15 +181,17 @@ const CategoryPage = () => {
                   Get Started
                 </span>
                 <h2 className="heading-section text-foreground mb-4">
-                  Request {category.name} Access
+                  {category.listingBased ? `Ask About ${category.name}` : `Request ${category.name} Access`}
                 </h2>
                 <p className="body-large mb-6">
-                  {bookableCategoryIds().includes(category.id)
+                  {category.listingBased
+                    ? "Tell us which island you are interested in, or what you are looking for, and we will come back with details."
+                    : bookableCategoryIds().includes(category.id)
                     ? `Tell us about your ${category.name.toLowerCase()} plans and we will come back with confirmed options and pricing. Reserve with a deposit where available, or request a quote.`
                     : `Submit your requirements and our concierge team will connect you with verified partners who can fulfill your ${category.name.toLowerCase()} needs.`}
                 </p>
                 
-                <div className="space-y-4 mb-8">
+                <div className={`space-y-4 mb-8 ${category.listingBased ? "hidden" : ""}`}>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-gold" />
                     <span className="text-foreground">Verified partner network</span>

@@ -4,12 +4,13 @@
  * internal notes and draft compliance text can never reach the site bundle.
  */
 import type { AirtableRecord } from "../../shared/airtable";
-import { F } from "../../shared/airtable-schema";
+import { F, LISTINGS_CATEGORY_SLUG } from "../../shared/airtable-schema";
 import { parseFaqs, parseIncludedItems, splitLines, splitParagraphs } from "../../shared/catalog-logic";
 import type {
   AssetTypeData,
   ComplianceRuleData,
   GbpListingData,
+  ListingData,
   LocationData,
   PackageData,
   PartnerData,
@@ -25,6 +26,8 @@ export interface RawTables {
   compliance: AirtableRecord[];
   gbp: AirtableRecord[];
   pageRegistry: AirtableRecord[];
+  /** Optional so older raw dumps (and --from files) without Listings still work. */
+  listings?: AirtableRecord[];
 }
 
 const str = (v: unknown): string => (typeof v === "string" ? v.trim() : "");
@@ -195,6 +198,109 @@ export const transformRedirects = (rows: AirtableRecord[], assets: AssetTypeData
     .filter((r) => r.from !== "/" && r.from !== r.to)
     .sort((a, b) => a.from.localeCompare(b.from));
 
+// ---------------------------------------------------------------------------
+// Listings (one-off for-sale items). Only Status = Live rows that are complete enough to publish.
+// ---------------------------------------------------------------------------
+
+const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const usd = (n: number) => `$${n.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+
+/** "Starting at $14,500,000", or the manual override, or "" when there is no price at all. */
+export const listingPriceLabel = (price: number | null, override: string): string =>
+  override || (price !== null && price > 0 ? `Starting at ${usd(price)}` : "");
+
+interface ListingCandidate {
+  name: string;
+  status: string;
+  slug: string;
+  categorySlug: string;
+  summary: string;
+}
+
+const candidateOf = (r: AirtableRecord): ListingCandidate => ({
+  name: str(r.fields[F.listings.name]),
+  status: str(r.fields[F.listings.status]),
+  slug: str(r.fields[F.listings.slug]),
+  categorySlug: LISTINGS_CATEGORY_SLUG[str(r.fields[F.listings.category])] ?? "",
+  summary: str(r.fields[F.listings.summary]),
+});
+
+/** Why a Live listing is not published (empty = fine). A Live row must not publish half-finished. */
+export const listingProblems = (c: ListingCandidate): string[] => {
+  const out: string[] = [];
+  if (!c.name) out.push("no Listing Name");
+  if (!c.slug) out.push("no Slug");
+  else if (!SLUG_RE.test(c.slug)) out.push(`Slug "${c.slug}" must be lowercase letters, numbers and hyphens`);
+  if (!c.categorySlug) out.push("Category is empty or not mapped in LISTINGS_CATEGORY_SLUG");
+  if (!c.summary) out.push("no Summary");
+  return out;
+};
+
+export const transformListings = (rows: AirtableRecord[]): ListingData[] => {
+  const seen = new Set<string>();
+  const out: ListingData[] = [];
+  for (const r of rows) {
+    const c = candidateOf(r);
+    if (c.status !== "Live" || listingProblems(c).length > 0) continue;
+    const key = `${c.categorySlug}/${c.slug}`;
+    if (seen.has(key)) continue; // duplicate slug: first row wins
+    seen.add(key);
+    const price = num(r.fields[F.listings.price]);
+    out.push({
+      id: r.id,
+      slug: c.slug,
+      name: c.name,
+      categorySlug: c.categorySlug,
+      region: str(r.fields[F.listings.region]),
+      price,
+      priceLabel: listingPriceLabel(price, str(r.fields[F.listings.priceOverride])),
+      summary: c.summary,
+      description: splitParagraphs(r.fields[F.listings.description]),
+      highlights: splitLines(r.fields[F.listings.highlights]),
+      photoUrl: str(r.fields[F.listings.photoUrl]),
+      // Only exposed when the checkbox is ticked.
+      offerText: bool(r.fields[F.listings.offerActive]) ? str(r.fields[F.listings.offerText]) : "",
+    });
+  }
+  return out.sort((a, b) => `${a.categorySlug}/${a.slug}`.localeCompare(`${b.categorySlug}/${b.slug}`));
+};
+
+/** Live rows that were NOT published, with the reason, so a "Live" listing never silently disappears. */
+export const skippedListings = (rows: AirtableRecord[]): { name: string; reasons: string[] }[] =>
+  rows
+    .map((r) => candidateOf(r))
+    .filter((c) => c.status === "Live")
+    .map((c) => ({ name: c.name || "(unnamed)", reasons: listingProblems(c) }))
+    .filter((x) => x.reasons.length > 0);
+
+/** A listing marked Sold stops being served; send its old URL to the category hub instead of a 404. */
+export const soldListingRedirects = (rows: AirtableRecord[]): RedirectData[] =>
+  rows
+    .map((r) => candidateOf(r))
+    .filter((c) => c.status === "Sold" && c.slug && SLUG_RE.test(c.slug) && c.categorySlug)
+    .map((c) => ({ from: `/${c.categorySlug}/${c.slug}`, to: `/${c.categorySlug}/` }));
+
+/** Text fields where the site's copy rules should be checked (never auto-edited, only warned about). */
+export const listingCopyWarnings = (rows: AirtableRecord[]): string[] => {
+  const warnings: string[] = [];
+  for (const r of rows) {
+    if (str(r.fields[F.listings.status]) !== "Live") continue;
+    const name = str(r.fields[F.listings.name]) || r.id;
+    const text = [F.listings.summary, F.listings.description, F.listings.highlights, F.listings.offerText, F.listings.priceOverride]
+      .map((f) => str(r.fields[f]))
+      .join("\n");
+    for (const word of ["free", "dispatch"]) {
+      if (new RegExp("\\b" + word + "\\b", "i").test(text)) warnings.push(`"${name}" contains the word "${word}" (site copy rule)`);
+    }
+  }
+  return warnings;
+};
+
+const mergeRedirects = (a: RedirectData[], b: RedirectData[]): RedirectData[] => {
+  const seen = new Set(a.map((r) => r.from));
+  return [...a, ...b.filter((r) => !seen.has(r.from))].sort((x, y) => x.from.localeCompare(y.from));
+};
+
 export const transformAll = (raw: RawTables): SiteData => {
   const assetTypes = transformAssetTypes(raw.assetTypes);
   return {
@@ -204,6 +310,7 @@ export const transformAll = (raw: RawTables): SiteData => {
     partners: transformPartners(raw.partners),
     compliance: transformCompliance(raw.compliance),
     gbp: transformGbp(raw.gbp),
-    redirects: transformRedirects(raw.pageRegistry, assetTypes),
+    redirects: mergeRedirects(transformRedirects(raw.pageRegistry, assetTypes), soldListingRedirects(raw.listings ?? [])),
+    listings: transformListings(raw.listings ?? []),
   };
 };

@@ -9,6 +9,7 @@ import partnersJson from "../../../data/partners.json";
 import complianceJson from "../../../data/compliance.json";
 import gbpJson from "../../../data/gbp.json";
 import redirectsJson from "../../../data/redirects.json";
+import listingsJson from "../../../data/listings.json";
 import { publishability } from "../../../shared/catalog-logic";
 import type { AssetTypeData, LocationData, PackageData, SiteData } from "../../../shared/data-types";
 
@@ -20,6 +21,7 @@ export const DATA: SiteData = {
   compliance: complianceJson as unknown as SiteData["compliance"],
   gbp: gbpJson as unknown as SiteData["gbp"],
   redirects: redirectsJson as unknown as SiteData["redirects"],
+  listings: listingsJson as unknown as SiteData["listings"],
 };
 
 export interface ResolvedContext {

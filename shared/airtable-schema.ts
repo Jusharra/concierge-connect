@@ -21,6 +21,7 @@ export const T = {
   gbpListings: "tble0BEOehpIYETrw",
   citations: "tbldSAH0OjxL8SZkE",
   cityPerformance: "tblzd1DPjW0TQwK9g",
+  listings: "tblc1nqQUXSJsInbp",
 } as const;
 
 export const F = {
@@ -177,4 +178,32 @@ export const F = {
     location: "fldEjdPAT0eiJHCrB",
     assetType: "fldlmHYnhG1Lanfpw",
   },
+  /**
+   * Listings: one-off for-sale items (e.g. a specific private island). ONLY the public fields are
+   * listed here, so they are the only ones ever requested from Airtable. "Deal Structure"
+   * (fldPWmhOfwY00rpaw) and "Internal Notes" (fldGaL45FlcnCp38R) are internal and deliberately absent.
+   */
+  listings: {
+    name: "fldJ6G7fkhVXuazr7",
+    slug: "fldQmMTmHhAAJ3PVt",
+    category: "fldP9Fk79vJObRtcg",
+    region: "fldZvaBBfj76lAWJY",
+    price: "fldvKlGDBQkG4A3pP",
+    priceOverride: "fldoQ57Lv343eMP0F",
+    summary: "fldduIwNj4Io2dlhF",
+    description: "fldyVQYsh3pGcPGBw",
+    highlights: "fldOQF0ti7pOzbiyK",
+    photoUrl: "fldXX4DLaarBejkB3",
+    offerActive: "fldl3n3uoUkQ9DfY6",
+    offerText: "fldcdpICp5cS0XuDF",
+    status: "fldHk49zw0skBaesE",
+  },
 } as const;
+
+/** Listings "Category" choice name -> the site's category slug (URL segment). Add a row per new choice. */
+export const LISTINGS_CATEGORY_SLUG: Record<string, string> = {
+  "Private Islands": "private-islands",
+};
+
+/** Field IDs that must never be requested from, or copied out of, the Listings table. */
+export const LISTINGS_INTERNAL_FIELD_IDS = ["fldPWmhOfwY00rpaw", "fldGaL45FlcnCp38R"] as const;

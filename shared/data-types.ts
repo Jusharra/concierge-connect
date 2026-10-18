@@ -122,6 +122,24 @@ export interface RedirectData {
   to: string;
 }
 
+/** A one-off for-sale listing (e.g. a private island). Public fields only: no deal structure or notes. */
+export interface ListingData {
+  id: string;
+  slug: string;
+  name: string;
+  categorySlug: string; // e.g. private-islands
+  region: string; // "Exuma Cays, Bahamas"
+  price: number | null;
+  /** What the page shows: the override if set, else "Starting at $X", else "" (page says price on request). */
+  priceLabel: string;
+  summary: string;
+  description: string[]; // paragraphs
+  highlights: string[];
+  photoUrl: string;
+  /** Present only when Irresistible Offer Active is ticked. */
+  offerText: string;
+}
+
 export interface SiteData {
   assetTypes: AssetTypeData[];
   locations: LocationData[];
@@ -130,4 +148,5 @@ export interface SiteData {
   compliance: ComplianceRuleData[];
   gbp: GbpListingData[];
   redirects: RedirectData[];
+  listings: ListingData[];
 }

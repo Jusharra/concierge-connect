@@ -38,5 +38,6 @@ export const makeData = (over: Partial<SiteData> = {}): SiteData => ({
   ],
   gbp: [],
   redirects: [],
+  listings: [],
   ...over,
 });

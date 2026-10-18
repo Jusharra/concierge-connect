@@ -11,6 +11,7 @@ import partnersJson from "../../data/partners.json";
 import complianceJson from "../../data/compliance.json";
 import gbpJson from "../../data/gbp.json";
 import redirectsJson from "../../data/redirects.json";
+import listingsJson from "../../data/listings.json";
 import {
   byId,
   complianceFor,
@@ -22,11 +23,28 @@ import {
 import type {
   AssetTypeData,
   GbpListingData,
+  ListingData,
   LocationData,
   PackageData,
   SiteData,
 } from "../../shared/data-types";
 import type { Category, Offer } from "./constants";
+
+// ---------------------------------------------------------------------------
+// Listings: one-off for-sale items (private islands). Already filtered to Live + complete at sync time.
+// ---------------------------------------------------------------------------
+
+export const publishedListings = (): ListingData[] => DATA.listings;
+
+export const findListing = (categoryId: string, slug: string): ListingData | undefined =>
+  DATA.listings.find((l) => l.categorySlug === categoryId && l.slug === slug);
+
+/**
+ * A listing-based category (Private Islands) is only indexable once it has at least one Live listing;
+ * until then the hub still renders (so the nav and URL work) but is noindex and left out of the sitemap.
+ */
+export const categoryIsIndexable = (cat: Pick<Category, "id" | "listingBased" | "offers">): boolean =>
+  !cat.listingBased || cat.offers.length > 0;
 
 export const DATA: SiteData = {
   assetTypes: assetsJson as unknown as AssetTypeData[],
@@ -36,6 +54,7 @@ export const DATA: SiteData = {
   compliance: complianceJson as unknown as SiteData["compliance"],
   gbp: gbpJson as unknown as GbpListingData[],
   redirects: redirectsJson as unknown as SiteData["redirects"],
+  listings: listingsJson as unknown as ListingData[],
 };
 
 export interface PublishedOffer {
@@ -129,7 +148,20 @@ export const complianceForPackage = (pkg: PackageData): ComplianceCheck => compl
 export const buildCategories = (legacy: Category[]): Category[] =>
   legacy.map((cat) => {
     const asset = DATA.assetTypes.find((a) => a.categorySlug === cat.id);
-    if (!asset?.bookable) return cat; // properties / business acquisitions stay exactly as they were
+    if (!asset?.bookable) {
+      // properties / business acquisitions stay exactly as they were; listing categories gain their Live listings
+      const listings = DATA.listings.filter((l) => l.categorySlug === cat.id);
+      if (listings.length === 0) return cat;
+      const fromListings: Offer[] = listings.map((l) => ({
+        city: l.region || cat.name,
+        slug: l.slug,
+        title: l.name,
+        price: l.priceLabel || undefined,
+        irresistibleOffer: l.offerText || undefined,
+        image: l.photoUrl || undefined,
+      }));
+      return { ...cat, offers: [...cat.offers, ...fromListings] };
+    }
     const offers: Offer[] = publishedOffers()
       .filter((o) => o.categoryId === cat.id)
       .map((o) => ({ city: o.location.city, slug: o.offerSlug, title: o.pkg.name }));
