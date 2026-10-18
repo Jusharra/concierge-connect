@@ -20,7 +20,7 @@ export const SITE = {
     display: "+1 (678) 335 8105",
     e164: "+16783358105",
   },
-  email: "luxconnoisseurs@gmail.com",
+  email: "concierge@luxconnoisseurs.com",
 
   /**
    * Postal address exactly as shown on the Google Business Profile.

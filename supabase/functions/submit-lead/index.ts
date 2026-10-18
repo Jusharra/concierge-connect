@@ -10,7 +10,7 @@ const BRAND = {
   name: "Lux Connoisseurs",
   tagline: "Private Access to Luxury Experiences",
   phone: "+1 (678) 335 8105",
-  email: "luxconnoisseurs@gmail.com",
+  email: "concierge@luxconnoisseurs.com",
   website: "https://luxconnoisseurs.com",
 };
 
